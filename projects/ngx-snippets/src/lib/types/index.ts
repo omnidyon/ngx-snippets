@@ -1,0 +1,1 @@
+export type Formats = 'JavaScript' | 'TypeScript' | 'HTML' | 'CSS';

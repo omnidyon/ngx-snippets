@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { TokenizerService } from './tokenizer.service';
 
-import { NgxSnippetsService } from './ngx-snippets.service';
-
-describe('NgxSnippetsService', () => {
-  let service: NgxSnippetsService;
+describe('TokenizerService', () => {
+  let service: TokenizerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgxSnippetsService);
+    service = TestBed.inject(TokenizerService);
   });
 
   it('should be created', () => {
