@@ -1,5 +1,4 @@
-
-@import './defaults.scss';
+@import "./defaults.scss";
 
 .snippets-content {
   width: inherit;
@@ -35,22 +34,25 @@
     }
 
     .copy-tab {
+      svg {
+        height: calc(var(--header-font-size) - 1px);
+        width: calc(var(--header-font-size));
+        fill: var(--snippet-header-text-color);
+
+        path {
+          d: path(var(--copy-icon-path));
+        }
+
+        &:hover {
+          color: var(--snippet-tab-hover-text-color);
+        }
+
+        &:active {
+          animation: copy-clicked 0.3s 1 linear;
+        }
+      }
       &:hover {
         border-radius: 0 5px 0px 2px;
-      }
-
-      &:active {
-        animation: zoom-in-zoom-out 0.4s 1 linear;
-      }
-    }
-
-    .copy {
-      height: calc(var(--header-font-size) - 1px);
-      width: calc(var(--header-font-size));
-      fill: var(--snippet-header-text-color);
-
-      &:hover {
-        color: var(--snippet-tab-hover-text-color);
       }
     }
 
@@ -153,16 +155,35 @@
   }
 }
 
-@keyframes zoom-in-zoom-out {
+@keyframes copy-clicked {
   0% {
+    fill: var(--snippet-header-text-color);
     transform: scale(1, 1);
   }
+  15% {
+    --copy-icon-path: var(--check-icon-path);
+    fill: var(--check-icon-color);
+  }
   50% {
-    transform: scale(0.7, 0.7);
+
+    transform: scale(1.4, 1.4);
+  }
+  85% {
+    fill: var(--snippet-header-text-color);
   }
   100% {
     transform: scale(1, 1);
   }
 }
 
-
+@keyframes checked {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
