@@ -6,12 +6,12 @@ import { TokenizerDirective } from './tokenizer/directive/tokenizer.directive';
 import { NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle } from '@angular/common';
 
 @Component({
-  selector: 'omni-ngx-snippets',
+  selector: 'omni-snippets',
   imports: [TokenizerDirective, NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle],
-  templateUrl: './ngx-snippets.component.html',
-  styleUrl: './ngx-snippets.component.scss',
+  templateUrl: './omni-snippets.component.html',
+  styleUrl: './omni-snippets.component.scss',
 })
-export class NgxSnippetsComponent {
+export class OmniSnippetsComponent {
   _snippets!: SnippetConfig[];
   snippetToCopy: string = '';
   tab: string = 'TypeScript';

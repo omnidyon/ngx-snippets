@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxSnippetsComponent } from './ngx-snippets.component';
+import { OmniSnippetsComponent } from './omni-snippets.component';
 
-describe('NgxSnippetsComponent', () => {
-  let component: NgxSnippetsComponent;
-  let fixture: ComponentFixture<NgxSnippetsComponent>;
+describe('OmniSnippetsComponent', () => {
+  let component: OmniSnippetsComponent;
+  let fixture: ComponentFixture<OmniSnippetsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgxSnippetsComponent]
+      imports: [OmniSnippetsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NgxSnippetsComponent);
+    fixture = TestBed.createComponent(OmniSnippetsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

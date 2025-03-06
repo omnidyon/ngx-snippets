@@ -2,4 +2,4 @@
  * Public API Surface of ngx-snippets
  */
 
-export * from './lib/ngx-snippets.component';
+export * from './lib/omni-snippets.component';
