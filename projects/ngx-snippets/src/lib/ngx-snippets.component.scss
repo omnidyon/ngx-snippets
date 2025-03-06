@@ -53,8 +53,8 @@
 }
 
 .snippet-tab:hover {
-  background-color: lighten($color: #1a212b, $amount: 8%);
-  color: lighten($color: #61789e, $amount: 12%);
+  background-color: lighten($color: var(--snippet-header-background-color), $amount: 8%);
+  color: lighten($color: var(--snippet-header-text-color), $amount: 12%);
 }
 .snippets {
   font-size: var(--snippet-font-size);
@@ -77,7 +77,7 @@
 
 .snippets::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  background-color: lighten($color: #1a212b, $amount: 8%);
+  background-color: lighten($color: var(--snippet-header-text-color), $amount: 12%);
 }
 
 .scope-level-1,
