@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'homes';
 }       
-        `,
+`,
     format: 'TypeScript',
   },
   {
@@ -28,7 +28,7 @@ export class AppComponent {
         <app-home></app-home>
     </section>
 </main> 
-        `,
+`,
     format: 'HTML',
   },
 ];

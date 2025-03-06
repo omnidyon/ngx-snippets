@@ -1,6 +1,7 @@
 import { Token, TokenData } from "../../interfaces/token.interface";
 import { DATA_TYPE_TOKENS, KEYWORD_TOKENS_A, KEYWORD_TOKENS_B, KEYWORD_TOKENS_C, OPERATOR_TOKENS } from "./tokens/js-ts-tokens";
 
+
 export function jsTokenizer(text: string): Token[] {
   let scopeLevelRound!: number;
   let scopeLevelSquare!: number;
@@ -16,9 +17,9 @@ export function jsTokenizer(text: string): Token[] {
       classifiedTokens.push(
         classifyToken({
           token,
-          priorToken: tokens[index - 1],
-          priorPriorToken: tokens[index - 3],
           nextToken: tokens[index + 1],
+          priorToken: tokens[index - 1],
+          priorPriorToken: tokens[index - 2],
         })
       );
     });
