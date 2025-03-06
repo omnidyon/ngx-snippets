@@ -21,6 +21,7 @@ export class NgxSnippetsComponent {
 
   @Input() style!: { [key: string]: any };
   @Input() styleClass!: string;
+  @Input() neon!: boolean;
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;
     this.tab = snippets[0].format;

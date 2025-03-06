@@ -53,7 +53,8 @@
       }
 
       &:active {
-        animation: copy-clicked 0.3s 1 linear;
+        --copy-icon-path: var(--check-icon-path);
+        --_fill-color: var(--check-icon-color);
       }
     }
 
@@ -153,18 +154,5 @@
 
   .attribute-token {
     color: var(--attribute-color);
-  }
-}
-
-@keyframes copy-clicked {
-  0% {
-    --_fill-color: var(--snippet-header-text-color);
-  }
-  15% {
-    --copy-icon-path: var(--check-icon-path);
-    --_fill-color: var(--check-icon-color);
-  }
-  100% {
-    --_fill-color: var(--snippet-header-text-color);
   }
 }
