@@ -1,6 +1,7 @@
 @import "./defaults.scss";
 
 .snippets-content {
+  --_fill-color: var(--snippet-header-text-color);
   width: inherit;
   height: inherit;
   min-height: 40px;
@@ -37,7 +38,7 @@
       svg {
         height: calc(var(--header-font-size) - 1px);
         width: calc(var(--header-font-size));
-        fill: var(--snippet-header-text-color);
+        fill: var(--_fill-color);
 
         path {
           d: path(var(--copy-icon-path));
@@ -46,13 +47,13 @@
         &:hover {
           color: var(--snippet-tab-hover-text-color);
         }
-
-        &:active {
-          animation: copy-clicked 0.3s 1 linear;
-        }
       }
       &:hover {
         border-radius: 0 5px 0px 2px;
+      }
+
+      &:active {
+        animation: copy-clicked 0.3s 1 linear;
       }
     }
 
@@ -157,33 +158,13 @@
 
 @keyframes copy-clicked {
   0% {
-    fill: var(--snippet-header-text-color);
-    transform: scale(1, 1);
+    --_fill-color: var(--snippet-header-text-color);
   }
   15% {
     --copy-icon-path: var(--check-icon-path);
-    fill: var(--check-icon-color);
-  }
-  50% {
-
-    transform: scale(1.4, 1.4);
-  }
-  85% {
-    fill: var(--snippet-header-text-color);
+    --_fill-color: var(--check-icon-color);
   }
   100% {
-    transform: scale(1, 1);
-  }
-}
-
-@keyframes checked {
-  0% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: scale(1.2, 1.2);
-  }
-  100% {
-    transform: scale(1, 1);
+    --_fill-color: var(--snippet-header-text-color);
   }
 }
