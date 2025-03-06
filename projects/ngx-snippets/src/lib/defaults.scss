@@ -10,6 +10,12 @@
   initial-value: 14px;
 }
 
+@property --snippet-border-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 5px;
+}
+
 @property --snippet-background-color {
   syntax: "<color>";
   inherits: true;

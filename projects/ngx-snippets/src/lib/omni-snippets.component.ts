@@ -3,11 +3,11 @@ import { SnippetConfig } from './interfaces/snippet-config.interface';
 import { TokenizerService } from './tokenizer/service/tokenizer.service';
 import { Token } from './interfaces/token.interface';
 import { TokenizerDirective } from './tokenizer/directive/tokenizer.directive';
-import { NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle } from '@angular/common';
+import { NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle, NgClass } from '@angular/common';
 
 @Component({
   selector: 'omni-snippets',
-  imports: [TokenizerDirective, NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle],
+  imports: [TokenizerDirective, NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle, NgClass],
   templateUrl: './omni-snippets.component.html',
   styleUrl: './omni-snippets.component.scss',
 })
@@ -21,7 +21,7 @@ export class OmniSnippetsComponent {
 
   @Input() style!: { [key: string]: any };
   @Input() styleClass!: string;
-  @Input() neon!: boolean;
+  @Input() rgb!: boolean;
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;
     this.tab = snippets[0].format;

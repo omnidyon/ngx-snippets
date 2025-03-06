@@ -44,7 +44,7 @@ export function jsTokenizer(text: string): Token[] {
       quoted = !quoted;
     }
 
-    if (quoted) {
+    if (quoted || isQuoted(tokenData)) {
       return 'quoted-token';
     } else if (isSeparatorToken(tokenData)) {
       return 'separator-token';

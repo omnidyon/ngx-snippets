@@ -1,4 +1,8 @@
-<div [ngStyle]="style" [class]="styleClass">
+<div
+  [class]="styleClass"
+  [ngStyle]="style"
+  [ngClass]="{ rgb: rgb }"
+>
   <div class="snippets-content">
     <div class="snippets-header">
       <div *ngFor="let snippet of _snippets; let i = index">

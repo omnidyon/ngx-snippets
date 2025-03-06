@@ -1,13 +1,21 @@
 @import "./defaults.scss";
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
 .snippets-content {
   --_fill-color: var(--snippet-header-text-color);
   width: inherit;
   height: inherit;
   min-height: 40px;
-  border-radius: 5px;
+  border-radius: var(--snippet-border-radius);
   background-color: var(--snippet-background-color);
-  margin: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 
   * {
     background: none;
@@ -25,13 +33,17 @@
 
     .snippet-tab {
       padding: 5px;
+      border-radius: 0px 0px 2px 2px;
+    }
+
+    .copy {
+      border-radius: 0px 5px 2px 2px;
     }
 
     .copy,
     .snippet-tab {
       color: var(--snippet-header-text-color);
       cursor: pointer;
-      border-radius: 0px 0px 2px 2px;
     }
 
     .copy-tab {
@@ -69,6 +81,7 @@
     letter-spacing: 0.8px;
     padding-left: 10px;
     overflow: auto;
+    border-radius: 0 0 5px 5px;
   }
 
   .snippets::-webkit-scrollbar-track {
@@ -154,5 +167,50 @@
 
   .attribute-token {
     color: var(--attribute-color);
+  }
+}
+
+.rgb {
+  position: relative;
+  border-radius: var(--snippet-border-radius);
+}
+
+.rgb::after,
+.rgb::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 1px;
+  border-radius: inherit;
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  animation: 6s spin linear infinite;
+}
+
+.rgb::after {
+  filter: blur(0.2px);
+}
+
+.rgb::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
   }
 }
