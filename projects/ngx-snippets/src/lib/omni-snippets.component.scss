@@ -19,9 +19,8 @@
     height: auto;
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
     background-color: var(--snippet-header-background-color) !important;
-    border-radius: 5px 5px 0 0;
+    border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
     font-size: var(--header-font-size);
 
     .snippet-tab {
@@ -49,7 +48,7 @@
         }
       }
       &:hover {
-        border-radius: 0 5px 0px 2px;
+        border-radius: 0 var(--snippet-border-radius) 0px 2px;
       }
 
       &:active {
@@ -67,7 +66,7 @@
   .snippets-code-lines {
     padding-left: 10px;
     overflow: auto;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 var(--snippet-border-radius) var(--snippet-border-radius);
 
     pre {
       margin: 5px 0px;
@@ -89,6 +88,7 @@
   .line-number {
     padding-right: 5px;
     cursor: pointer;
+    color: var(--snippet-header-text-color);
 
     &:hover {
       color: var(--snippet-tab-hover-text-color);

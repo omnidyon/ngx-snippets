@@ -136,12 +136,6 @@
   initial-value: #ffd255;
 }
 
-@property --attribute-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #ffd255;
-}
-
 @property --special-char-token-color {
   syntax: "<color>";
   inherits: true;
