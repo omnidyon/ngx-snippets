@@ -1,10 +1,3 @@
-@import "./defaults.scss";
-
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
 .snippets-content {
   --_fill-color: var(--snippet-header-text-color);
   width: inherit;
@@ -36,11 +29,6 @@
       border-radius: 0px 0px 2px 2px;
     }
 
-    .copy {
-      border-radius: 0px 5px 2px 2px;
-    }
-
-    .copy,
     .snippet-tab {
       color: var(--snippet-header-text-color);
       cursor: pointer;
@@ -76,27 +64,61 @@
     }
   }
 
-  .snippets {
-    font-size: var(--snippet-font-size);
-    letter-spacing: 0.8px;
+  .snippets-code-lines {
     padding-left: 10px;
     overflow: auto;
     border-radius: 0 0 5px 5px;
+
+    pre {
+      margin: 5px 0px;
+    }
   }
 
-  .snippets::-webkit-scrollbar-track {
+  .snippets-line-numbers {
+    display: flex;
+    width: 72px;
+    min-width: 72px;
+    pointer-events: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--snippet-header-text-color);
+    padding: 5px 0px;
+    border-right: 1px solid var(--snippet-header-text-color);
+  }
+
+  .line-number {
+    padding-right: 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--snippet-tab-hover-text-color);
+    }
+  }
+
+  .snippets-code-lines,
+  .snippets-line-numbers {
+    font-size: var(--snippet-font-size);
+    letter-spacing: 0.8px;
+  }
+
+  .snippets {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .snippets-code-lines::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 2px;
     background-color: var(--snippet-header-background-color);
   }
 
-  .snippets::-webkit-scrollbar {
+  .snippets-code-lines::-webkit-scrollbar {
     background-color: var(--snippet-header-background-color);
     scrollbar-width: thin;
     scroll-behavior: smooth;
   }
 
-  .snippets::-webkit-scrollbar-thumb {
+  .snippets-code-lines::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: var(--snippet-tab-hover-color);
   }
@@ -170,47 +192,7 @@
   }
 }
 
-.rgb {
+.snippet-effects {
   position: relative;
   border-radius: var(--snippet-border-radius);
-}
-
-.rgb::after,
-.rgb::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  padding: 1px;
-  border-radius: inherit;
-  background-image: conic-gradient(
-    from var(--angle),
-    #ff4545,
-    #00ff99,
-    #006aff,
-    #ff0095,
-    #ff4545
-  );
-  animation: 6s spin linear infinite;
-}
-
-.rgb::after {
-  filter: blur(0.2px);
-}
-
-.rgb::before {
-  filter: blur(1.5rem);
-  opacity: 0.5;
-}
-
-@keyframes spin {
-  from {
-    --angle: 0deg;
-  }
-  to {
-    --angle: 360deg;
-  }
 }

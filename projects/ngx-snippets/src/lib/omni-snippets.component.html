@@ -1,8 +1,13 @@
 <div
   [class]="styleClass"
   [ngStyle]="style"
-  [ngClass]="{ rgb: rgb }"
->
+  [ngClass]="{
+    'rgb': effects === 'RGB',
+    'neon-blue': effects === 'Neon-Blue',
+    'neon-orange': effects === 'Neon-Orange',
+    'neon-green': effects === 'Neon-Green',
+    'neon-red': effects === 'Neon-Red'
+     }">
   <div class="snippets-content">
     <div class="snippets-header">
       <div *ngFor="let snippet of _snippets; let i = index">
@@ -11,27 +16,23 @@
         </div>
       </div>
       <div class="snippet-tab copy-tab" (click)="copySnippet()">
-        <svg
-          class="copy"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 -960 960 960"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
           <path />
         </svg>
       </div>
     </div>
     <div class="snippets">
-      <div *ngIf="_snippets?.length">
-        <div
-          *ngFor="let snippet of _snippets; let i = index"
-          [ngSwitch]="snippet.format"
-        >
-          <pre
-            codeTokenizer
-            [format]="snippet.format"
-            [tokens]="classifiedTokens[i]"
-            *ngSwitchCase="tab"
-          ></pre>
+      <div class="snippets-line-numbers" #lineNumbers></div>
+      <div class="snippets-code-lines">
+        <div *ngIf="_snippets?.length">
+          <div *ngFor="let snippet of _snippets; let i = index" [ngSwitch]="snippet.format">
+            <pre
+              codeTokenizer
+              [lineNumbers]="lineNumbers"
+              [format]="snippet.format"
+              [tokens]="classifiedTokens[i]"
+              *ngSwitchCase="tab"></pre>
+          </div>
         </div>
       </div>
     </div>

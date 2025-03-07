@@ -4,6 +4,7 @@ export const EXAMPLE_SNIPPETS: SnippetConfig[] = [
   {
     template: `
 import { Component } from '@angular/core';
+
 @Component({
     selector: 'app-root',
     imports: [],
@@ -12,9 +13,10 @@ import { Component } from '@angular/core';
     \`,
     styleUrls: ['./app.component.css'],
 })
+    
 export class AppComponent {
     title = 'homes';
-}       
+}
 `,
     format: 'TypeScript',
   },
@@ -27,7 +29,7 @@ export class AppComponent {
     <section class="content">
         <app-home></app-home>
     </section>
-</main> 
+</main>
 `,
     format: 'HTML',
   },

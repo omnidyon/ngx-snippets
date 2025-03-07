@@ -1,0 +1,118 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.neon-blue,
+.neon-orange,
+.neon-green,
+.neon-red,
+.rgb {
+  position: relative;
+  border-radius: var(--snippet-border-radius);
+}
+
+.neon-blue::after,
+.neon-blue::before,
+.neon-orange::after,
+.neon-orange::before,
+.neon-green::after,
+.neon-green::before,
+.neon-red::after,
+.neon-red::before,
+.rgb::after,
+.rgb::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 1px;
+  border-radius: inherit;
+  animation: 6s spin linear infinite;
+}
+
+.neon-blue::after,
+.neon-orange::after,
+.neon-green::after,
+.neon-red::after,
+.rgb::after {
+  filter: blur(0.2px);
+}
+
+.neon-blue::before,
+.neon-orange::before,
+.neon-green::before,
+.neon-red::before,
+.rgb::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+.rgb::after,
+.rgb::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+}
+
+.neon-blue::after,
+.neon-blue::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    #5ddcff,
+    #4e76f0,
+    #4e4be7,
+    #5ddcff
+  );
+}
+
+.neon-orange::after,
+.neon-orange::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    #fdeda3,
+    #d8a341,
+    #a76d03,
+    #fdeda3,
+  );
+}
+
+.neon-green::after,
+.neon-green::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    #7efdd7,
+    #34c280,
+    #058b54,
+    #7efdd7
+  );
+}
+
+.neon-red::after,
+.neon-red::before {
+  background-image: conic-gradient(
+    from var(--angle),
+    #fda0b7,
+    #d8418c,
+    #970555,
+    #fda0b7
+  );
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
