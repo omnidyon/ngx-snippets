@@ -13,7 +13,7 @@ export class TokenizerDirective {
   @Input() set tokens(tokens: Token[]) {
     this.lineCount = 1;
     this.clearNumberLines();
-    tokens.forEach((token) => {
+    tokens.forEach((token, i) => {
       this.createNumberLine(token);
       this.createSpan(token);
     });

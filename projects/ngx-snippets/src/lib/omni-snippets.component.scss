@@ -64,7 +64,7 @@
 
   .snippets-code-lines {
     padding-left: 10px;
-    overflow: auto;
+    width: 100%;
     border-radius: 0 0 var(--snippet-border-radius) var(--snippet-border-radius);
 
     pre {
@@ -82,6 +82,7 @@
     color: var(--snippet-header-text-color);
     padding: 5px 0px;
     border-right: 1px solid var(--snippet-header-text-color);
+
   }
 
   .line-number {
@@ -98,27 +99,28 @@
   .snippets-line-numbers {
     font-size: var(--snippet-font-size);
     letter-spacing: 0.8px;
+    height: 100%;
   }
 
   .snippets {
     display: flex;
     flex-direction: row;
+    overflow: auto;
   }
 
-  .snippets-code-lines::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 2px;
+  .snippets::-webkit-scrollbar {
     background-color: var(--snippet-header-background-color);
-
-  }
-
-  .snippets-code-lines::-webkit-scrollbar {
-    background-color: var(--snippet-header-background-color);
-    scrollbar-width: thin;
+    width: 5px;
+    height: 5px;
     scroll-behavior: smooth;
   }
 
-  .snippets-code-lines::-webkit-scrollbar-thumb {
+  .snippets::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background-color: var(--snippet-header-background-color);
+  }
+
+  .snippets::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: var(--snippet-header-text-color);
   }
