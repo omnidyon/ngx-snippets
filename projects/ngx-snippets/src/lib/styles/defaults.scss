@@ -34,18 +34,6 @@
   initial-value: #61789e;
 }
 
-@property --snippet-tab-hover-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #252e3b;
-}
-
-@property --snippet-tab-hover-text-color {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #7693c0;
-}
-
 @property --ka-token-color {
   syntax: "<color>";
   inherits: true;

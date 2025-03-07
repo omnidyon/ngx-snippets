@@ -26,11 +26,18 @@
     .snippet-tab {
       padding: 5px;
       border-radius: 0px 0px 2px 2px;
-    }
-
-    .snippet-tab {
       color: var(--snippet-header-text-color);
       cursor: pointer;
+
+      &:hover {
+        filter: brightness(150%);
+        backdrop-filter: brightness(60%);
+      }
+    }
+
+    .active-tab {
+      filter: brightness(150%);
+      backdrop-filter: brightness(50%);
     }
 
     .copy-tab {
@@ -44,22 +51,14 @@
         }
 
         &:hover {
-          color: var(--snippet-tab-hover-text-color);
+          filter: brightness(150%);
         }
-      }
-      &:hover {
-        border-radius: 0 var(--snippet-border-radius) 0px 2px;
       }
 
       &:active {
         --copy-icon-path: var(--check-icon-path);
         --_fill-color: var(--check-icon-color);
       }
-    }
-
-    .snippet-tab:hover {
-      background-color: var(--snippet-tab-hover-color);
-      color: var(--snippet-tab-hover-text-color);
     }
   }
 
@@ -91,7 +90,7 @@
     color: var(--snippet-header-text-color);
 
     &:hover {
-      color: var(--snippet-tab-hover-text-color);
+      filter: brightness(150%);
     }
   }
 
@@ -110,6 +109,7 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 2px;
     background-color: var(--snippet-header-background-color);
+
   }
 
   .snippets-code-lines::-webkit-scrollbar {
@@ -120,7 +120,7 @@
 
   .snippets-code-lines::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background-color: var(--snippet-tab-hover-color);
+    background-color: var(--snippet-header-text-color);
   }
 
   .scope-level-1,

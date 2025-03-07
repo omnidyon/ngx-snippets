@@ -11,7 +11,12 @@
   <div class="snippets-content">
     <div class="snippets-header">
       <div *ngFor="let snippet of _snippets; let i = index">
-        <div class="snippet-tab" (click)="switchSnippet(snippet.format, i)">
+        <div
+          class="snippet-tab"
+          [ngClass]="{
+            'active-tab': tab === snippet.format
+          }"
+          (click)="switchSnippet(snippet.format, i)">
           {{ snippet.format }}
         </div>
       </div>
