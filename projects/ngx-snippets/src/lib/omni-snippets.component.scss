@@ -39,30 +39,55 @@
       filter: brightness(150%);
       backdrop-filter: brightness(50%);
     }
+  }
 
-    .copy-tab {
-      svg {
-        height: calc(var(--header-font-size) - 1px);
-        width: calc(var(--header-font-size));
-        fill: var(--_fill-color);
+  .copy-button,
+  .snippets-header .copy-tab {
+    svg {
+      fill: var(--_fill-color);
 
-        path {
-          d: path(var(--copy-icon-path));
-        }
-
-        &:hover {
-          filter: brightness(150%);
-        }
+      path {
+        d: path(var(--copy-icon-path));
       }
 
-      &:active {
-        --copy-icon-path: var(--check-icon-path);
-        --_fill-color: var(--check-icon-color);
+      &:hover {
+        filter: brightness(150%);
       }
+    }
+
+    &:active {
+      --copy-icon-path: var(--check-icon-path);
+      --_fill-color: var(--check-icon-color);
+    }
+  }
+
+  .snippets-header .copy-tab {
+    svg {
+      height: calc(var(--header-font-size) - 1px);
+      width: calc(var(--header-font-size) - 1px);
+    }
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--snippet-header-background-color);
+    border-radius: 2px;
+    height: calc(var(--snippet-font-size) + 3px);
+    width: calc(var(--snippet-font-size) + 3px);
+
+    svg {
+      height: calc(var(--snippet-font-size) + 1px);
+      width: calc(var(--snippet-font-size) + 1px);
     }
   }
 
   .snippets-code-lines {
+    min-height: inherit;
     padding-left: 10px;
     width: 100%;
     border-radius: 0 0 var(--snippet-border-radius) var(--snippet-border-radius);
@@ -75,14 +100,16 @@
   .snippets-line-numbers {
     display: flex;
     width: 72px;
+    height: 100%;
     min-width: 72px;
+    min-height: inherit;
     pointer-events: auto;
     flex-direction: column;
     align-items: flex-end;
     color: var(--snippet-header-text-color);
     padding: 5px 0px;
     border-right: 1px solid var(--snippet-header-text-color);
-
+    backdrop-filter: brightness(120%);
   }
 
   .line-number {
@@ -107,13 +134,15 @@
   }
 
   .selected-element {
-    background-color: var(--snippet-header-background-color);
+    background-color: var(--highlight-color);
+    filter: brightness(130%);
   }
 
   .snippets {
     display: flex;
     flex-direction: row;
     overflow: auto;
+    min-height: inherit;
   }
 
   .snippets::-webkit-scrollbar {

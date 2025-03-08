@@ -1,19 +1,46 @@
-import { Component, Input } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+  TemplateRef,
+} from '@angular/core';
 import { SnippetConfig } from './interfaces/snippet-config.interface';
 import { TokenizerService } from './tokenizer/service/tokenizer.service';
 import { Token } from './interfaces/token.interface';
-import { TokenizerDirective } from './tokenizer/directive/tokenizer.directive';
-import { NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle, NgClass } from '@angular/common';
+import { CodeTokenizerDirective} from './directives/code-tokenizer.directive';
+import {
+  NgIf,
+  NgFor,
+  NgSwitch,
+  NgSwitchCase,
+  NgStyle,
+  NgClass,
+  NgTemplateOutlet,
+} from '@angular/common';
 import { Effects } from './types';
+import { Formats } from 'ngx-snippets';
+import { TemplateTokenizerDirective } from './directives/template-tokenizer.directive';
 
 @Component({
   selector: 'omni-snippets',
-  imports: [TokenizerDirective, NgIf, NgFor, NgSwitch, NgSwitchCase, NgStyle, NgClass],
+  imports: [
+    CodeTokenizerDirective,
+    TemplateTokenizerDirective,
+    NgIf,
+    NgFor,
+    NgSwitch,
+    NgSwitchCase,
+    NgStyle,
+    NgClass,
+    NgTemplateOutlet,
+  ],
   templateUrl: './omni-snippets.component.html',
   styleUrls: [
     './omni-snippets.component.scss',
     './styles/defaults.scss',
-    './styles/effects.scss'
+    './styles/effects.scss',
   ],
 })
 export class OmniSnippetsComponent {
@@ -22,11 +49,15 @@ export class OmniSnippetsComponent {
   tab: string = 'TypeScript';
   classifiedTokens: Token[][] = [];
 
+  @ContentChild(TemplateRef) template!: TemplateRef<any>;
+
   constructor(private tokenizerService: TokenizerService) {}
 
   @Input() style!: { [key: string]: any };
   @Input() styleClass!: string;
   @Input() effects!: Effects;
+  @Input() format: Formats = 'JavaScript';
+
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;
     this.tab = snippets[0].format;

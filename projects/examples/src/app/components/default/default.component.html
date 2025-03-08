@@ -1,4 +1,8 @@
 <div>
   <h3>Default Theme</h3>
-  <omni-snippets [snippets]="exampleSnippets"></omni-snippets>
+  <omni-snippets>
+    <ng-template>
+      {{`import { SomeClass } from 'some-file';\nexport class SomeOtherClass {\n\tproperty = 0\n\n\tdoSomething() {\n\t\treturn "did it";\n\t}\n}`}}
+    </ng-template>
+  </omni-snippets>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { OmniSnippetsComponent } from 'ngx-snippets';
 import { EXAMPLE_SNIPPETS } from './example-snippets';
 import { SnippetConfig } from '../../../../../ngx-snippets/src/lib/interfaces/snippet-config.interface';
 import { DefaultComponent } from '../default/default.component';
@@ -15,7 +14,6 @@ import { Custom8Component } from '../custom8/custom8.component';
 @Component({
   selector: 'app-main',
   imports: [
-    OmniSnippetsComponent,
     DefaultComponent,
     Custom1Component,
     Custom2Component,

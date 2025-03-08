@@ -18,7 +18,7 @@ export const lineSelect = (event: Event, renderer: Renderer2): void => {
 
     const nextInLine: Element = document.elementsFromPoint(
       coordinates.x + offset,
-      coordinates.y
+      coordinates.y + coordinates.height / 2
     )[0];
     if (nextInLine.nodeName === 'PRE') {
       return;

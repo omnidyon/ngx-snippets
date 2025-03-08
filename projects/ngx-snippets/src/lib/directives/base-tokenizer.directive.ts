@@ -1,43 +1,22 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  OnDestroy,
-  Renderer2,
-} from '@angular/core';
-import { Formats } from '../../types';
-import { Token } from '../../interfaces/token.interface';
-import { lineSelect } from '../../utils/line-handler';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Token } from '../interfaces/token.interface';
+import { lineSelect } from '../handlers/line-handler';
 
 @Directive({
-  selector: '[codeTokenizer]',
+  selector: '[omniBaseTokenizer]',
 })
-export class TokenizerDirective implements OnDestroy {
+ export abstract class BaseTokenizerDirective {
   self!: HTMLPreElement;
-  lineCount!: number;
+  abstract lineCount: number;
   unListeners: (() => void)[] = [];
 
   @Input() lineNumbers!: HTMLDivElement;
-  @Input() format: Formats = 'TypeScript';
-  @Input() set tokens(tokens: Token[]) {
-    this.lineCount = 1;
-    this.clearNumberLines();
-    tokens.forEach((token, i) => {
-      this.createNumberLine(token);
-      this.createSpan(token);
-    });
-    this.addNumberLine();
-  }
 
   constructor(
-    private readonly elementRef: ElementRef,
-    private readonly renderer: Renderer2
+    public readonly elementRef: ElementRef,
+    public readonly renderer: Renderer2
   ) {
     this.self = this.elementRef.nativeElement;
-  }
-
-  ngOnDestroy(): void {
-    this.unListeners.forEach((unListener) => unListener());
   }
 
   createSpan(token: Token): void {
@@ -72,7 +51,7 @@ export class TokenizerDirective implements OnDestroy {
     }
   }
 
-  setSelected(element: Element[]): void {
-    this.renderer.addClass(element, 'selected-element');
-  }
+  // setSelected(element: Element[]): void {
+  //   this.renderer.addClass(element, 'selected-element');
+  // }
 }

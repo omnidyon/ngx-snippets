@@ -19,7 +19,7 @@
 @property --snippet-background-color {
   syntax: "<color>";
   inherits: true;
-  initial-value: #2a3446;
+  initial-value: #202836;
 }
 
 @property --snippet-header-background-color {
@@ -32,6 +32,12 @@
   syntax: "<color>";
   inherits: true;
   initial-value: #61789e;
+}
+
+@property --highlight-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2e3b4b;
 }
 
 @property --ka-token-color {
