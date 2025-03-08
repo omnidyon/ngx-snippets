@@ -6,10 +6,10 @@ import {
   OnDestroy,
   Renderer2,
 } from '@angular/core';
-import { TokenizerService } from '../tokenizer/service/tokenizer.service';
-import { Formats } from 'ngx-snippets';
 import { Token } from '../interfaces/token.interface';
 import { BaseTokenizerDirective } from './base-tokenizer.directive';
+import { Formats } from '../types';
+import { TokenizerService } from '../services/tokenizer.service';
 
 @Directive({
   selector: '[templateTokenizer]',

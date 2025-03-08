@@ -1,15 +1,7 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChild,
-  ElementRef,
-  Input,
-  TemplateRef,
-} from '@angular/core';
+import { Component, ContentChild, Host, Input, Self, TemplateRef } from '@angular/core';
 import { SnippetConfig } from './interfaces/snippet-config.interface';
-import { TokenizerService } from './tokenizer/service/tokenizer.service';
 import { Token } from './interfaces/token.interface';
-import { CodeTokenizerDirective} from './directives/code-tokenizer.directive';
+import { CodeTokenizerDirective } from './directives/code-tokenizer.directive';
 import {
   NgIf,
   NgFor,
@@ -19,15 +11,18 @@ import {
   NgClass,
   NgTemplateOutlet,
 } from '@angular/common';
-import { Effects } from './types';
-import { Formats } from 'ngx-snippets';
+import { Effects, Formats } from './types';
+import { TokenizerService } from './services/tokenizer.service';
+import { CopyService } from './services/copy.service';
 import { TemplateTokenizerDirective } from './directives/template-tokenizer.directive';
+import { RecordForCopyDirective } from './directives/record-for-copy.directive';
 
 @Component({
   selector: 'omni-snippets',
   imports: [
     CodeTokenizerDirective,
     TemplateTokenizerDirective,
+    RecordForCopyDirective,
     NgIf,
     NgFor,
     NgSwitch,
@@ -36,6 +31,7 @@ import { TemplateTokenizerDirective } from './directives/template-tokenizer.dire
     NgClass,
     NgTemplateOutlet,
   ],
+  providers: [CopyService],
   templateUrl: './omni-snippets.component.html',
   styleUrls: [
     './omni-snippets.component.scss',
@@ -45,13 +41,15 @@ import { TemplateTokenizerDirective } from './directives/template-tokenizer.dire
 })
 export class OmniSnippetsComponent {
   _snippets!: SnippetConfig[];
-  snippetToCopy: string = '';
   tab: string = 'TypeScript';
   classifiedTokens: Token[][] = [];
 
   @ContentChild(TemplateRef) template!: TemplateRef<any>;
 
-  constructor(private tokenizerService: TokenizerService) {}
+  constructor(
+    private tokenizerService: TokenizerService,
+    @Host() @Self() private copyService: CopyService
+  ) {}
 
   @Input() style!: { [key: string]: any };
   @Input() styleClass!: string;
@@ -61,7 +59,7 @@ export class OmniSnippetsComponent {
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;
     this.tab = snippets[0].format;
-    this.snippetToCopy = snippets[0].template;
+    this.copyService.set(snippets[0].template);
     snippets.forEach((snippet) => {
       this.classifiedTokens.push(
         this.tokenizerService.tokenize(snippet.template, snippet.format)
@@ -71,10 +69,10 @@ export class OmniSnippetsComponent {
 
   switchSnippet(tab: string, i: number): void {
     this.tab = tab;
-    this.snippetToCopy = this._snippets[i].template;
+    this.copyService.set(this._snippets[i].template);
   }
 
   copySnippet(): void {
-    navigator.clipboard.writeText(this.snippetToCopy);
+    this.copyService.toClipboard();
   }
 }

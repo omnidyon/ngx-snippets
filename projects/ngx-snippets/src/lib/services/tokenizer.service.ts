@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Formats } from '../../types';
-import { Token } from '../../interfaces/token.interface';
-import { jsTokenizer } from '../tokenizers/js-tokenizer';
-import { htmlTokenizer } from '../tokenizers/html-tokenizer';
+import { htmlTokenizer } from '../tokenizer/tokenizers/html-tokenizer';
+import { jsTokenizer } from '../tokenizer/tokenizers/js-tokenizer';
+import { Formats } from '../types';
+import { Token } from '../interfaces/token.interface';
+
 
 @Injectable({
   providedIn: 'root',
