@@ -1,10 +1,10 @@
-import { AfterViewInit, Directive, ElementRef, SkipSelf } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 import { CopyService } from '../services/copy.service';
 
 @Directive({
   selector: '[recordForCopy]',
 })
-export class RecordForCopyDirective implements AfterViewInit{
+export class RecordForCopyDirective implements AfterViewInit {
   self!: HTMLPreElement;
   constructor(
     private copyService: CopyService,
@@ -14,6 +14,6 @@ export class RecordForCopyDirective implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.copyService.set(this.self.innerText)
+    this.copyService.set(this.self.innerText);
   }
 }
