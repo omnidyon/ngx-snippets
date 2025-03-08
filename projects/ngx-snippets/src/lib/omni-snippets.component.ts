@@ -46,5 +46,4 @@ export class OmniSnippetsComponent {
   copySnippet(): void {
     navigator.clipboard.writeText(this.snippetToCopy);
   }
-
 }
