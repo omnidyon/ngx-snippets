@@ -1,12 +1,17 @@
 import { Renderer2 } from '@angular/core';
+import { CopyService } from '../services/copy.service';
 
-export const lineSelect = (event: Event, renderer: Renderer2): void => {
+export const lineSelect = (
+  event: Event,
+  renderer: Renderer2,
+  copyService: CopyService
+): void => {
   const element = event.target as HTMLSpanElement;
 
   const getInline = (element: Element) => {
     const start = element.classList[0] === 'line-number';
-    if(start) {
-      if(element.classList.contains('selected-line-number')) {
+    if (start) {
+      if (element.classList.contains('selected-line-number')) {
         renderer.removeClass(element, 'selected-line-number');
       } else {
         renderer.addClass(element, 'selected-line-number');

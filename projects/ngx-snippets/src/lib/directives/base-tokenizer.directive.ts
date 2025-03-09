@@ -1,6 +1,8 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Optional, Renderer2, ViewContainerRef } from '@angular/core';
 import { Token } from '../interfaces/token.interface';
 import { lineSelect } from '../handlers/line-handler';
+import { CopyService } from '../services/copy.service';
+import { NumberLineComponent } from '../components/number-line/number-line.component';
 
 @Directive({
   selector: '[omniBaseTokenizer]',
@@ -14,7 +16,9 @@ import { lineSelect } from '../handlers/line-handler';
 
   constructor(
     public readonly elementRef: ElementRef,
-    public readonly renderer: Renderer2
+    public readonly renderer: Renderer2,
+    public readonly copyService: CopyService,
+    public readonly viewContainer: ViewContainerRef
   ) {
     this.self = this.elementRef.nativeElement;
   }
@@ -34,15 +38,18 @@ import { lineSelect } from '../handlers/line-handler';
   }
 
   addNumberLine(): void {
-    const span = this.renderer.createElement('span');
-    this.renderer.setProperty(span, 'innerText', this.lineCount);
-    this.renderer.addClass(span, 'line-number');
-    this.unListeners.push(
-      this.renderer.listen(span, 'click', (event: Event) =>
-        lineSelect(event, this.renderer)
-      )
-    );
-    this.renderer.appendChild(this.lineNumbers, span);
+    // const span = this.renderer.createElement('span');
+    // this.renderer.setProperty(span, 'innerText', this.lineCount);
+    // this.renderer.addClass(span, 'line-number');
+    // this.unListeners.push(
+    //   this.renderer.listen(span, 'click', (event: Event) =>
+    //     lineSelect(event, this.renderer, this.copyService)
+    //   )
+    // );
+    // this.renderer.appendChild(this.lineNumbers, span);
+    const numberLine = this.viewContainer.createComponent(NumberLineComponent);
+    numberLine.setInput('number', this.lineCount);
+    this.renderer.appendChild(this.lineNumbers, numberLine.location.nativeElement);
   }
 
   clearNumberLines(): void {
@@ -50,8 +57,4 @@ import { lineSelect } from '../handlers/line-handler';
       this.renderer.removeChild(this.lineNumbers, this.lineNumbers.lastChild);
     }
   }
-
-  // setSelected(element: Element[]): void {
-  //   this.renderer.addClass(element, 'selected-element');
-  // }
 }

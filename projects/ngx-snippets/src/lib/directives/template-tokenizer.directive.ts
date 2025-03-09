@@ -5,11 +5,13 @@ import {
   Input,
   OnDestroy,
   Renderer2,
+  ViewContainerRef,
 } from '@angular/core';
 import { Token } from '../interfaces/token.interface';
 import { BaseTokenizerDirective } from './base-tokenizer.directive';
 import { Formats } from '../types';
 import { TokenizerService } from '../services/tokenizer.service';
+import { CopyService } from '../services/copy.service';
 
 @Directive({
   selector: '[templateTokenizer]',
@@ -26,9 +28,11 @@ export class TemplateTokenizerDirective
   constructor(
     public override readonly elementRef: ElementRef,
     public override readonly renderer: Renderer2,
+    public override readonly copyService: CopyService,
+    public override readonly viewContainer: ViewContainerRef,
     private tokenizerService: TokenizerService
   ) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, copyService, viewContainer);
   }
 
   ngAfterViewInit(): void {

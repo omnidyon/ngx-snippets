@@ -112,25 +112,11 @@
     backdrop-filter: brightness(120%);
   }
 
-  .line-number {
-    padding-right: 10px;
-    cursor: pointer;
-    color: var(--snippet-header-text-color);
-
-    &:hover {
-      filter: brightness(150%);
-    }
-  }
-
   .snippets-code-lines,
   .snippets-line-numbers {
     font-size: var(--snippet-font-size);
     letter-spacing: 0.8px;
     height: 100%;
-  }
-
-  .selected-line-number {
-    color: var(--check-icon-color);
   }
 
   .selected-element {

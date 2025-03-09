@@ -6,7 +6,7 @@
     'neon-red': effects === 'Neon-Red'
      }">
   <div class="snippets-content">
-    <div class="snippets-header" *ngIf="_snippets; else copyBlock">
+    <div class="snippets-header" *ngIf="_snippets && _snippets.length > 1; else copyBlock">
       <div *ngFor="let snippet of _snippets; let i = index">
         <div class="snippet-tab" [ngClass]="{
             'active-tab': tab === snippet.format

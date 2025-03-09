@@ -1,0 +1,17 @@
+.number-line {
+  padding-right: 10px;
+  cursor: pointer;
+  color: var(--snippet-header-text-color);
+  background-color: var(--snippet-background-color);
+  filter: brightness(120%);
+
+  &:hover {
+    // filter: brightness(150%);
+    color: whitesmoke;
+  }
+}
+
+.selected-line-number {
+  color: var(--check-icon-color);
+}
+

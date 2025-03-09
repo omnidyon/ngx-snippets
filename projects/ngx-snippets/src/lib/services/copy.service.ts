@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CopyService {
-  private _textToCopy: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private _textToCopy: string = '';
+  private _linesToCope: {[key: string]: string} = {}
 
   set(text: string): void {
-    console.log(text)
-    this._textToCopy.next(text);
+    this._textToCopy = text;
   }
 
   get(): string {
-    return this._textToCopy.getValue();
+    return this._textToCopy;
   }
 
   add(text: string): void{
-    this._textToCopy.next(this._textToCopy.getValue() + text);
+    this._textToCopy += text;
+  }
+
+  setLine(number: number, line: string): void {
+    if(!line) {
+      delete this._linesToCope[number]
+    } else {
+      this._linesToCope[number] = line;
+    }
+    this._textToCopy = Object.values(this._linesToCope).join(`\n`);
   }
 
   toClipboard(): void {
-    console.log(this._textToCopy.getValue())
-    navigator.clipboard.writeText(this._textToCopy.getValue());
+    navigator.clipboard.writeText(this._textToCopy);
   }
 }
