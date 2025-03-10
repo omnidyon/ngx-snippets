@@ -1,9 +1,12 @@
-import { Token, TokenData } from "../../interfaces/token.interface";
+import { Token, TokenData } from '../../interfaces/token.interface';
 
 export function htmlTokenizer(text: string): Token[] {
+  let quoted: boolean = false;
+
   function parseAndClassify(text: string): Token[] {
     const classifiedTokens: Token[] = [];
-    const tokens = text.split(/([<>="\t\n\v\f\r ])/g);
+    const tokens = text.split(/([/<>="\t\n\v\f\r ])/g);
+
     tokens.forEach((token, index) => {
       classifiedTokens.push(
         classifyToken({
@@ -26,6 +29,10 @@ export function htmlTokenizer(text: string): Token[] {
 
   function getClass(tokenData: TokenData): string {
     if (isQuoted(tokenData)) {
+      quoted = !quoted;
+    }
+
+    if (quoted || isQuoted(tokenData)) {
       return 'quoted-token';
     } else if (isMark(tokenData)) {
       return 'kc-token';
@@ -39,22 +46,27 @@ export function htmlTokenizer(text: string): Token[] {
   }
 
   function isElementName(tokenData: TokenData): boolean {
-    return tokenData.priorToken === '<' && (tokenData.nextToken === ' ' || tokenData.nextToken === '>');
+    return (
+      (tokenData.priorToken === '<' || tokenData.priorToken === '/') &&
+      (tokenData.nextToken === ' ' || tokenData.nextToken === '>')
+    );
   }
 
   function isAttribute(tokenData: TokenData): boolean {
     return (
       tokenData.nextToken === '=' ||
-      (tokenData.nextToken === '>' && tokenData.priorToken === ' ' && tokenData.priorPriorToken !== '/')
+      (tokenData.nextToken === '>' &&
+        tokenData.priorToken === ' ' &&
+        tokenData.priorPriorToken !== '/')
     );
   }
 
   function isMark(tokenData: TokenData): boolean {
-    return tokenData.token === '<' || tokenData.token === '>' || tokenData.token === '=';
+    return /([<>=/])/g.test(tokenData.token);
   }
 
   function isQuoted(tokenData: TokenData): boolean {
-    return /(["'`])/g.test(tokenData.token) || (tokenData.priorToken === '"' && tokenData.nextToken === '"');
+    return /(["'`])/g.test(tokenData.token);
   }
 
   return parseAndClassify(text);

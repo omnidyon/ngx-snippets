@@ -21,11 +21,11 @@
     justify-content: flex-end;
     background-color: var(--snippet-header-background-color) !important;
     border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
-    font-size: var(--header-font-size);
+    font-size: var(--snippets-header-font-size);
 
     .snippet-tab {
       padding: 5px;
-      border-radius: 0px 0px 2px 2px;
+      border-radius: 0px 0px var(--snippet-tab-border-radius) var(--snippet-tab-border-radius);
       color: var(--snippet-header-text-color);
       cursor: pointer;
 
@@ -63,8 +63,8 @@
 
   .snippets-header .copy-tab {
     svg {
-      height: calc(var(--header-font-size) - 1px);
-      width: calc(var(--header-font-size) - 1px);
+      height: calc(var(--snippets-header-font-size) - 1px);
+      width: calc(var(--snippets-header-font-size) - 1px);
     }
   }
 
@@ -97,11 +97,11 @@
     }
   }
 
-  .snippets-line-numbers {
+  .snippets-gutter {
     display: flex;
-    width: 72px;
+    width: var(--snippets-gutter-width);
     height: 100%;
-    min-width: 72px;
+    min-width: var(--snippets-gutter-width);
     min-height: inherit;
     pointer-events: auto;
     flex-direction: column;
@@ -113,15 +113,16 @@
   }
 
   .snippets-code-lines,
-  .snippets-line-numbers {
+  .snippets-gutter {
     font-size: var(--snippet-font-size);
-    letter-spacing: 0.8px;
+    letter-spacing: var(--snippet-letter-spacing);
     height: 100%;
   }
 
   .selected-element {
-    background-color: var(--highlight-color);
     filter: brightness(130%);
+    background-color: var(--snippet-background-color);
+    backdrop-filter: brightness(150%);
   }
 
   .snippets {
@@ -133,8 +134,8 @@
 
   .snippets::-webkit-scrollbar {
     background-color: var(--snippet-header-background-color);
-    width: 5px;
-    height: 5px;
+    width: var(--snippets-scrollbar-width);
+    height: var(--snippets-scrollbar-height);
     scroll-behavior: smooth;
   }
 

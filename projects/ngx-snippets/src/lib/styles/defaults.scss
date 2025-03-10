@@ -4,13 +4,43 @@
   initial-value: 13px;
 }
 
-@property --header-font-size {
+@property --snippets-header-font-size {
   syntax: "<length>";
   inherits: true;
   initial-value: 12px;
 }
 
+@property --snippet-letter-spacing {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1px;
+}
+
 @property --snippet-border-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 5px;
+}
+
+@property --snippet-tab-border-radius {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 2px;
+}
+
+@property --snippets-gutter-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 72px;
+}
+
+@property --snippets-scrollbar-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 5px;
+}
+
+@property --snippets-scrollbar-height {
   syntax: "<length>";
   inherits: true;
   initial-value: 5px;
@@ -34,10 +64,16 @@
   initial-value: #61789e;
 }
 
-@property --highlight-color {
+@property --number-line-highlight-color {
   syntax: "<color>";
   inherits: true;
-  initial-value: #2e3b4b;
+  initial-value: #38e9ae;
+}
+
+@property --number-line-hover-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #07cc8a;
 }
 
 @property --ka-token-color {

@@ -28,7 +28,7 @@
       </div>
     </ng-template>
     <div class="snippets" *ngIf="_snippets; else templateBlock">
-      <div class="snippets-line-numbers" #lineNumbers></div>
+      <div class="snippets-gutter" #lineNumbers></div>
       <div class="snippets-code-lines">
         <div *ngIf="_snippets?.length">
           <div *ngFor="let snippet of _snippets; let i = index" [ngSwitch]="snippet.format">
@@ -40,7 +40,7 @@
     </div>
     <ng-template #templateBlock>
       <div class="snippets">
-        <div class="snippets-line-numbers" #lineNumbers></div>
+        <div class="snippets-gutter" #lineNumbers></div>
         <div class="snippets-code-lines">
           <pre recordForCopy templateTokenizer [lineNumbers]="lineNumbers">
             <ng-container *ngTemplateOutlet="template"></ng-container>
