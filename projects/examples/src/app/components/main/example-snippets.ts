@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
     \`,
     styleUrls: ['./app.component.css'],
 })
-    
+
 export class AppComponent {
     title = 'homes';
 }
@@ -33,4 +33,30 @@ export class AppComponent {
 `,
     format: 'HTML',
   },
+  {
+    template: `
+.snippets-header {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--snippet-header-background-color) !important;
+  border-radius: var(--snippet-border-radius) var(--snippet-border-radius) 0 0;
+  font-size: var(--snippets-header-font-size);
+
+  .snippet-tab {
+    padding: 5px;
+    border-radius: 0px 0px var(--snippet-tab-border-radius) var(--snippet-tab-border-radius);
+    color: var(--snippet-header-text-color);
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(150%);
+      backdrop-filter: brightness(60%);
+    }
+  }
+}
+    `,
+    format: 'CSS'
+  }
 ];

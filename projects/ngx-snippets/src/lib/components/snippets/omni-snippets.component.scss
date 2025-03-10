@@ -216,6 +216,14 @@
   .attribute-token {
     color: var(--attribute-color);
   }
+
+  .selector-token {
+    color: var(--selector-token-color);
+  }
+
+  .css-prop-token {
+    color: var(--check-icon-color);
+  }
 }
 
 .snippet-effects {

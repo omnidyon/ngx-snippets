@@ -1,4 +1,5 @@
-import { Token, TokenData } from '../../interfaces/token.interface';
+import { TokenData } from '../../interfaces/token.interface';
+import { BaseTokenizer } from './base-tokenizer';
 import {
   DATA_TYPE_TOKENS,
   KEYWORD_TOKENS_A,
@@ -7,74 +8,48 @@ import {
   OPERATOR_TOKENS,
 } from './tokens/js-ts-tokens';
 
-export function jsTokenizer(text: string): Token[] {
-  let scopeLevelRound!: number;
-  let scopeLevelSquare!: number;
-  let scopeLevelCurly!: number;
-  let quoted: boolean = false;
+export class JSTokenizer extends BaseTokenizer {
+  splitExpression  = /(["'`\t\n\v\f\r !,.:;{}()\[\]])/g;
+  scopeLevelRound: number = 1;
+  scopeLevelSquare: number = 1;
+  scopeLevelCurly: number = 1;
 
-  function parseAndClassify(text: string): Token[] {
-    scopeLevelRound = 1;
-    scopeLevelSquare = 1;
-    scopeLevelCurly = 1;
-    const classifiedTokens: Token[] = [];
-    const tokens = text.split(/(["'`\t\n\v\f\r !,.:;{}()\[\]])/g);
-    tokens.forEach((token, index) => {
-      classifiedTokens.push(
-        classifyToken({
-          token,
-          nextToken: tokens[index + 1],
-          priorToken: tokens[index - 1],
-          priorPriorToken: tokens[index - 2],
-        })
-      );
-    });
-    return classifiedTokens;
-  }
-
-  function classifyToken(tokenData: TokenData): Token {
-    return {
-      token: tokenData.token,
-      class: getClass(tokenData),
-    };
-  }
-
-  function getClass(tokenData: TokenData): string {
-    if (isQuoted(tokenData)) {
-      quoted = !quoted;
+  getClass(tokenData: TokenData): string {
+    if (this.isQuoted(tokenData)) {
+      this.quoted = !this.quoted;
     }
 
-    if (quoted || isQuoted(tokenData)) {
+    if (this.quoted || this.isQuoted(tokenData)) {
       return 'quoted-token';
-    } else if (isSeparatorToken(tokenData)) {
+    } else if (this.isSeparatorToken(tokenData)) {
       return 'separator-token';
     } else if (tokenData.token === '{') {
-      return `scope-level-${scopeLevelCurly++}`;
+      return `scope-level-${this.scopeLevelCurly++}`;
     } else if (tokenData.token === '}') {
-      return `scope-level-${--scopeLevelCurly}`;
+      return `scope-level-${--this.scopeLevelCurly}`;
     } else if (tokenData.token === '(') {
-      return `scope-level-${scopeLevelRound++}`;
+      return `scope-level-${this.scopeLevelRound++}`;
     } else if (tokenData.token === ')') {
-      return `scope-level-${--scopeLevelRound}`;
+      return `scope-level-${--this.scopeLevelRound}`;
     } else if (tokenData.token === '[') {
-      return `scope-level-${scopeLevelSquare++}`;
+      return `scope-level-${this.scopeLevelSquare++}`;
     } else if (tokenData.token === ']') {
-      return `scope-level-${--scopeLevelSquare}`;
-    } else if (isObjectProperty(tokenData)) {
+      return `scope-level-${--this.scopeLevelSquare}`;
+    } else if (this.isObjectProperty(tokenData)) {
       return 'property-token';
-    } else if (isKeywordToken(tokenData, KEYWORD_TOKENS_A)) {
+    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_A)) {
       return 'ka-token';
-    } else if (isKeywordToken(tokenData, KEYWORD_TOKENS_B)) {
+    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_B)) {
       return 'kb-token';
-    } else if (isKeywordToken(tokenData, KEYWORD_TOKENS_C)) {
+    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_C)) {
       return 'kc-token';
-    } else if (isDataToken(tokenData)) {
+    } else if (this.isDataToken(tokenData)) {
       return 'data-token';
-    } else if (isFunctionToken(tokenData)) {
+    } else if (this.isFunctionToken(tokenData)) {
       return 'function-token';
-    } else if (isParameterToken(tokenData)) {
+    } else if (this.isParameterToken(tokenData)) {
       return 'parameter-token';
-    } else if (isOperatorToken(tokenData)) {
+    } else if (this.isOperatorToken(tokenData)) {
       return 'operator-token';
     } else if (/([()])/g.test(tokenData.token)) {
       return 'var-token';
@@ -83,11 +58,7 @@ export function jsTokenizer(text: string): Token[] {
     }
   }
 
-  function isQuoted(tokenData: TokenData): boolean {
-    return /(["'`])/g.test(tokenData.token);
-  }
-
-  function isObjectProperty(tokenData: TokenData): boolean {
+  isObjectProperty(tokenData: TokenData): boolean {
     return (
       tokenData.priorToken === '.' &&
       (tokenData.nextToken === '.' ||
@@ -97,35 +68,33 @@ export function jsTokenizer(text: string): Token[] {
     );
   }
 
-  function isKeywordToken(tokenData: TokenData, tokenSet: string[]): boolean {
+  isKeywordToken(tokenData: TokenData, tokenSet: string[]): boolean {
     return (
       tokenSet.some((token) => token === tokenData.token) &&
       tokenData.nextToken !== ':'
     );
   }
 
-  function isDataToken(tokenData: TokenData): boolean {
+  isDataToken(tokenData: TokenData): boolean {
     return (
       !!(tokenData.priorPriorToken === ':' && tokenData.token) ||
       DATA_TYPE_TOKENS.some((token) => token === tokenData.token)
     );
   }
 
-  function isFunctionToken(tokenData: TokenData): boolean {
+  isFunctionToken(tokenData: TokenData): boolean {
     return tokenData.nextToken === '(' && !tokenData.token.includes('/');
   }
 
-  function isParameterToken(tokenData: TokenData): boolean {
+  isParameterToken(tokenData: TokenData): boolean {
     return tokenData.nextToken !== ')' && tokenData.nextToken === ':';
   }
 
-  function isSeparatorToken(tokenData: TokenData): boolean {
+  isSeparatorToken(tokenData: TokenData): boolean {
     return /([!,.:;])/g.test(tokenData.token);
   }
 
-  function isOperatorToken(tokenData: TokenData): boolean {
+  isOperatorToken(tokenData: TokenData): boolean {
     return OPERATOR_TOKENS.some((token) => token === tokenData.token);
   }
-
-  return parseAndClassify(text);
 }

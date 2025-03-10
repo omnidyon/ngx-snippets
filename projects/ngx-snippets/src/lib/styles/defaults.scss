@@ -172,6 +172,18 @@
   initial-value: #4cdaab;
 }
 
+@property --selector-token-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #daa14c;
+}
+
+@property --prop-token-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #da4cc7;
+}
+
 @property --check-icon-color {
   syntax: "<color>";
   inherits: true;

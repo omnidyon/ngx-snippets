@@ -1,58 +1,35 @@
-import { Token, TokenData } from '../../interfaces/token.interface';
+import { TokenData } from '../../interfaces/token.interface';
+import { BaseTokenizer } from './base-tokenizer';
 
-export function htmlTokenizer(text: string): Token[] {
-  let quoted: boolean = false;
+export class HTMLTokenizer extends BaseTokenizer {
+  splitExpression  = /([/<>="\t\n\v\f\r ])/g;
 
-  function parseAndClassify(text: string): Token[] {
-    const classifiedTokens: Token[] = [];
-    const tokens = text.split(/([/<>="\t\n\v\f\r ])/g);
-
-    tokens.forEach((token, index) => {
-      classifiedTokens.push(
-        classifyToken({
-          token,
-          priorToken: tokens[index - 1],
-          priorPriorToken: tokens[index - 2],
-          nextToken: tokens[index + 1],
-        })
-      );
-    });
-    return classifiedTokens;
-  }
-
-  function classifyToken(tokenData: TokenData): Token {
-    return {
-      token: tokenData.token,
-      class: getClass(tokenData),
-    };
-  }
-
-  function getClass(tokenData: TokenData): string {
-    if (isQuoted(tokenData)) {
-      quoted = !quoted;
+  getClass(tokenData: TokenData): string {
+    if (this.isQuoted(tokenData)) {
+      this.quoted = !this.quoted;
     }
 
-    if (quoted || isQuoted(tokenData)) {
+    if (this.quoted || this.isQuoted(tokenData)) {
       return 'quoted-token';
-    } else if (isMark(tokenData)) {
+    } else if (this.isMark(tokenData)) {
       return 'kc-token';
-    } else if (isElementName(tokenData)) {
+    } else if (this.isElementName(tokenData)) {
       return 'element-token';
-    } else if (isAttribute(tokenData)) {
+    } else if (this.isAttribute(tokenData)) {
       return 'attribute-token';
     } else {
       return 'text-token';
     }
   }
 
-  function isElementName(tokenData: TokenData): boolean {
+  isElementName(tokenData: TokenData): boolean {
     return (
       (tokenData.priorToken === '<' || tokenData.priorToken === '/') &&
       (tokenData.nextToken === ' ' || tokenData.nextToken === '>')
     );
   }
 
-  function isAttribute(tokenData: TokenData): boolean {
+  isAttribute(tokenData: TokenData): boolean {
     return (
       tokenData.nextToken === '=' ||
       (tokenData.nextToken === '>' &&
@@ -61,13 +38,7 @@ export function htmlTokenizer(text: string): Token[] {
     );
   }
 
-  function isMark(tokenData: TokenData): boolean {
+  isMark(tokenData: TokenData): boolean {
     return /([<>=/])/g.test(tokenData.token);
   }
-
-  function isQuoted(tokenData: TokenData): boolean {
-    return /(["'`])/g.test(tokenData.token);
-  }
-
-  return parseAndClassify(text);
 }
