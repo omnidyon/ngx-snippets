@@ -1,10 +1,11 @@
 import { TokenData } from '../../interfaces/token.interface';
+import { CSS_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 import { CSS_PROP_TOKENS, CSS_TOKENS } from './tokens/css-tokens';
 import { HTML_TOKENS } from './tokens/html-tokens';
 
 export class CSSTokenizer extends BaseTokenizer {
-  splitExpression = /(["'\t\n\v\f\r ,:;{}()])/g;
+  splitExpression = CSS_SPLIT;
   scopeLevelCurly: number = 1;
   scopeLevelRound: number = 1;
 
@@ -33,6 +34,8 @@ export class CSSTokenizer extends BaseTokenizer {
       return 'function-token';
     } else if (this.isProp(tokenData)) {
       return 'css-prop-token';
+    } else if (this.isSeparatorToken(tokenData)) {
+      return 'separator-token';
     } else {
       return 'text-token';
     }
@@ -60,5 +63,9 @@ export class CSSTokenizer extends BaseTokenizer {
 
   isProp(tokenData: TokenData): boolean {
     return CSS_PROP_TOKENS.includes(tokenData.token);
+  }
+
+  isSeparatorToken(tokenData: TokenData): boolean {
+    return /([,.:;])/g.test(tokenData.token);
   }
 }

@@ -1,4 +1,5 @@
 import { TokenData } from '../../interfaces/token.interface';
+import { JS_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 import {
   DATA_TYPE_TOKENS,
@@ -9,7 +10,7 @@ import {
 } from './tokens/js-ts-tokens';
 
 export class JSTokenizer extends BaseTokenizer {
-  splitExpression = /(["'`\t\n\v\f\r !,.:;{}()\[\]])/g;
+  splitExpression = JS_SPLIT;
   scopeLevelRound: number = 1;
   scopeLevelSquare: number = 1;
   scopeLevelCurly: number = 1;

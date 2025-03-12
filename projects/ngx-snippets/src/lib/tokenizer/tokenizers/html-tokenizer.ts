@@ -1,8 +1,9 @@
 import { TokenData } from '../../interfaces/token.interface';
+import { HTML_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 
 export class HTMLTokenizer extends BaseTokenizer {
-  splitExpression  = /([/<>="\t\n\v\f\r ])/g;
+  splitExpression  = HTML_SPLIT;
 
   getClass(tokenData: TokenData): string {
     if (this.isQuoted(tokenData)) {
