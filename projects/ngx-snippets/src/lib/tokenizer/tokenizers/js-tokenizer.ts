@@ -9,7 +9,7 @@ import {
 } from './tokens/js-ts-tokens';
 
 export class JSTokenizer extends BaseTokenizer {
-  splitExpression  = /(["'`\t\n\v\f\r !,.:;{}()\[\]])/g;
+  splitExpression = /(["'`\t\n\v\f\r !,.:;{}()\[\]])/g;
   scopeLevelRound: number = 1;
   scopeLevelSquare: number = 1;
   scopeLevelCurly: number = 1;

@@ -1,4 +1,11 @@
-import { Component, ContentChild, Host, Input, Self, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  Host,
+  Input,
+  Self,
+  TemplateRef,
+} from '@angular/core';
 import { SnippetConfig } from '../../interfaces/snippet-config.interface';
 import { Token } from '../../interfaces/token.interface';
 import { CodeTokenizerDirective } from '../../directives/code-tokenizer.directive';

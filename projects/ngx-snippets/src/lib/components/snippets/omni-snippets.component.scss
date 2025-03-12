@@ -25,7 +25,8 @@
 
     .snippet-tab {
       padding: 5px;
-      border-radius: 0px 0px var(--snippet-tab-border-radius) var(--snippet-tab-border-radius);
+      border-radius: 0px 0px var(--snippet-tab-border-radius)
+        var(--snippet-tab-border-radius);
       color: var(--snippet-header-text-color);
       cursor: pointer;
 
@@ -222,7 +223,7 @@
   }
 
   .css-prop-token {
-    color: var(--check-icon-color);
+    color: var(--prop-token-color);
   }
 }
 

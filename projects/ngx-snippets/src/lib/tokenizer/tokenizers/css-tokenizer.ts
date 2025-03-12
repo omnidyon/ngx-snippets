@@ -4,7 +4,7 @@ import { CSS_PROP_TOKENS, CSS_TOKENS } from './tokens/css-tokens';
 import { HTML_TOKENS } from './tokens/html-tokens';
 
 export class CSSTokenizer extends BaseTokenizer {
-  splitExpression = /(["'\t\n\v\f\r !,:;{}()])/g;
+  splitExpression = /(["'\t\n\v\f\r ,:;{}()])/g;
   scopeLevelCurly: number = 1;
   scopeLevelRound: number = 1;
 
