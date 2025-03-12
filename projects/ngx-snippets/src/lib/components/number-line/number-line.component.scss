@@ -4,6 +4,7 @@
   color: var(--snippet-header-text-color);
   background-color: var(--snippet-background-color);
   filter: brightness(120%);
+  transform: perspective(1000px);
 
   &:hover {
     color: var(--number-line-hover-color);

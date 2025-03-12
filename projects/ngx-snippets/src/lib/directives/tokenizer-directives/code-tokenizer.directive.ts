@@ -1,16 +1,15 @@
-import {
-  Directive,
-  Input,
-  OnDestroy,
-} from '@angular/core';
-import { Formats } from '../types';
-import { Token } from '../interfaces/token.interface';
+import { Directive, Input, OnDestroy } from '@angular/core';
+import { Formats } from '../../types';
+import { Token } from '../../interfaces/token.interface';
 import { BaseTokenizerDirective } from './base-tokenizer.directive';
 
 @Directive({
   selector: '[codeTokenizer]',
 })
-export class CodeTokenizerDirective extends BaseTokenizerDirective implements OnDestroy {
+export class CodeTokenizerDirective
+  extends BaseTokenizerDirective
+  implements OnDestroy
+{
   lineCount!: number;
 
   @Input() format: Formats = 'TypeScript';

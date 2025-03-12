@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { SnippetConfig } from '../../interfaces/snippet-config.interface';
 import { Token } from '../../interfaces/token.interface';
-import { CodeTokenizerDirective } from '../../directives/code-tokenizer.directive';
+import { CodeTokenizerDirective } from '../../directives/tokenizer-directives/code-tokenizer.directive';
 import {
   NgIf,
   NgFor,
@@ -21,8 +21,8 @@ import {
 import { Effects, Formats } from '../../types';
 import { TokenizerService } from '../../services/tokenizer.service';
 import { CopyService } from '../../services/copy.service';
-import { TemplateTokenizerDirective } from '../../directives/template-tokenizer.directive';
-import { RecordForCopyDirective } from '../../directives/record-for-copy.directive';
+import { TemplateTokenizerDirective } from '../../directives/tokenizer-directives/template-tokenizer.directive';
+import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.directive';
 
 @Component({
   selector: 'omni-snippets',

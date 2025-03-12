@@ -1,13 +1,18 @@
-import { Directive, ElementRef, Input, Optional, Renderer2, ViewContainerRef } from '@angular/core';
-import { Token } from '../interfaces/token.interface';
-import { lineSelect } from '../handlers/line-handler';
-import { CopyService } from '../services/copy.service';
-import { NumberLineComponent } from '../components/number-line/number-line.component';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  Renderer2,
+  ViewContainerRef,
+} from '@angular/core';
+import { Token } from '../../interfaces/token.interface';
+import { CopyService } from '../../services/copy.service';
+import { NumberLineComponent } from '../../components/number-line/number-line.component';
 
 @Directive({
   selector: '[omniBaseTokenizer]',
 })
- export abstract class BaseTokenizerDirective {
+export abstract class BaseTokenizerDirective {
   self!: HTMLPreElement;
   abstract lineCount: number;
   unListeners: (() => void)[] = [];
@@ -38,18 +43,13 @@ import { NumberLineComponent } from '../components/number-line/number-line.compo
   }
 
   addNumberLine(): void {
-    // const span = this.renderer.createElement('span');
-    // this.renderer.setProperty(span, 'innerText', this.lineCount);
-    // this.renderer.addClass(span, 'line-number');
-    // this.unListeners.push(
-    //   this.renderer.listen(span, 'click', (event: Event) =>
-    //     lineSelect(event, this.renderer, this.copyService)
-    //   )
-    // );
-    // this.renderer.appendChild(this.lineNumbers, span);
     const numberLine = this.viewContainer.createComponent(NumberLineComponent);
     numberLine.setInput('number', this.lineCount);
-    this.renderer.appendChild(this.lineNumbers, numberLine.location.nativeElement);
+    this.renderer.addClass(numberLine.location.nativeElement, 'gutter-item');
+    this.renderer.appendChild(
+      this.lineNumbers,
+      numberLine.location.nativeElement
+    );
   }
 
   clearNumberLines(): void {

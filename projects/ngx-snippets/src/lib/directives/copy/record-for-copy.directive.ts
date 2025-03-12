@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, ElementRef } from '@angular/core';
-import { CopyService } from '../services/copy.service';
+import { CopyService } from '../../services/copy.service';
 
 @Directive({
   selector: '[recordForCopy]',

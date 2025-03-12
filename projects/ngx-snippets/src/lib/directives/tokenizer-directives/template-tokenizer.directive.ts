@@ -7,11 +7,11 @@ import {
   Renderer2,
   ViewContainerRef,
 } from '@angular/core';
-import { Token } from '../interfaces/token.interface';
+import { Token } from '../../interfaces/token.interface';
 import { BaseTokenizerDirective } from './base-tokenizer.directive';
-import { Formats } from '../types';
-import { TokenizerService } from '../services/tokenizer.service';
-import { CopyService } from '../services/copy.service';
+import { Formats } from '../../types';
+import { TokenizerService } from '../../services/tokenizer.service';
+import { CopyService } from '../../services/copy.service';
 
 @Directive({
   selector: '[templateTokenizer]',
