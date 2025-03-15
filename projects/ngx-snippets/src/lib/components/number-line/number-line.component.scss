@@ -9,18 +9,21 @@
   filter: brightness(120%);
 
   .digit {
-    background-color: inherit;
+    background: none;
     padding-right: 10px;
 
     &:hover {
       color: var(--number-line-hover-color);
+      transform: scale(1.2);
     }
   }
-
 }
 
 .selected-line-number {
-  color: var(--number-line-highlight-color);
   filter: brightness(140%);
   border-left: 2px solid var(--snippet-header-text-color);
+}
+
+.selected-digit {
+  color: var(--number-line-highlight-color);
 }
