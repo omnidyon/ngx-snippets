@@ -1,5 +1,3 @@
-<span
-  class="number-line"
-  [ngClass]="{'selected-line-number': selected}"
-  (click)="selectLine()">{{number}}
-</span>
+<div class="number-line" [ngClass]="{ 'selected-line-number': selected }">
+  <span class="digit" (click)="selectLine()">{{ number }} </span>
+</div>

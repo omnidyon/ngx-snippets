@@ -1,17 +1,26 @@
 .number-line {
-  padding-right: 10px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: inherit;
   cursor: pointer;
   color: var(--snippet-header-text-color);
   background-color: var(--snippet-background-color);
   filter: brightness(120%);
-  transform: perspective(1000px);
 
-  &:hover {
-    color: var(--number-line-hover-color);
+  .digit {
+    background-color: inherit;
+    padding-right: 10px;
+
+    &:hover {
+      color: var(--number-line-hover-color);
+    }
   }
+
 }
 
 .selected-line-number {
   color: var(--number-line-highlight-color);
+  filter: brightness(140%);
+  border-left: 2px solid var(--snippet-header-text-color);
 }
-

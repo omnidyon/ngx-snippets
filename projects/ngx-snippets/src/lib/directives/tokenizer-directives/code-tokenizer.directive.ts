@@ -10,15 +10,11 @@ export class CodeTokenizerDirective
   extends BaseTokenizerDirective
   implements OnDestroy
 {
-  lineCount!: number;
-
   @Input() format: Formats = 'TypeScript';
   @Input() set tokens(tokens: Token[]) {
-    this.lineCount = 1;
     this.clearNumberLines();
     tokens.forEach((token, i) => {
-      this.createNumberLine(token);
-      this.createSpan(token);
+      this. handleToken(token);
     });
     this.addNumberLine();
   }

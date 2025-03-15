@@ -21,7 +21,6 @@ export class TemplateTokenizerDirective
   implements AfterViewInit, OnDestroy
 {
   classifiedTokens: Token[] = [];
-  override lineCount: number = 1;
 
   @Input() format!: Formats;
 
@@ -42,8 +41,7 @@ export class TemplateTokenizerDirective
     );
     this.self.innerText = '';
     this.classifiedTokens.forEach((token) => {
-      this.createNumberLine(token);
-      this.createSpan(token);
+      this.handleToken(token);
     });
     this.addNumberLine();
   }

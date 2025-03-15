@@ -6,7 +6,11 @@ import { CopyService } from '../../services/copy.service';
   selector: 'omni-number-line',
   imports: [NgClass],
   templateUrl: './number-line.component.html',
-  styleUrls: ['./number-line.component.scss', '../../styles/defaults.scss'],
+  styleUrls: [
+    './number-line.component.scss',
+    '../../styles/defaults.scss',
+    '../snippets/omni-snippets.component.scss',
+  ],
 })
 export class NumberLineComponent {
   self!: HTMLSpanElement;
@@ -23,35 +27,44 @@ export class NumberLineComponent {
   }
 
   selectLine(): void {
-    this.traverseLine(this.self);
+    this.handleSelect(this.self);
     this.copyService.setLine(this.number, this.valueForCopy);
     this.copyService.toClipboard();
   }
 
-  traverseLine(element: Element): void {
-    const start = element === this.self;
-    if (start) {
-      this.selected = !this.selected;
-      this.valueForCopy = '';
-    }
-
+  handleSelect(element: Element): void {
+    this.valueForCopy = '';
     const coordinates = element.getBoundingClientRect();
-    const offset = Math.round(coordinates.width) + (start ? 11 : 1);
+    const offset = Math.round(coordinates.width) + 11;
 
     const nextInLine: Element = document.elementsFromPoint(
       coordinates.x + offset,
       coordinates.y + coordinates.height / 2
     )[0];
 
-    if (nextInLine.nodeName !== 'PRE') {
-      if (nextInLine.classList.contains('selected-element')) {
-        this.renderer.removeClass(nextInLine, 'selected-element');
-      } else {
-        this.renderer.addClass(nextInLine, 'selected-element');
-        this.valueForCopy += nextInLine.innerHTML;
-      }
+    if (nextInLine.hasAttribute('row-num')) {
+      this.setLine(nextInLine);
+    } else if (nextInLine.parentElement) {
+      this.setLine(nextInLine.parentElement);
+    }
+  }
 
-      this.traverseLine(nextInLine);
+  setLine(element: Element): void {
+    if (element.classList.contains('selected-line')) {
+      this.renderer.removeClass(element, 'selected-line');
+      this.selected = false;
+    } else {
+      this.renderer.addClass(element, 'selected-line');
+      this.setCopyValue(element);
+      this.selected = true;
+    }
+  }
+
+  setCopyValue(element: Element): void {
+    const spans = element.children;
+
+    for (let i = 0; i < spans.length; i++) {
+      this.valueForCopy += spans[i].innerHTML;
     }
   }
 }
