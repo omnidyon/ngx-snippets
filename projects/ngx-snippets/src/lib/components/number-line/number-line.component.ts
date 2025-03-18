@@ -34,9 +34,9 @@ export class NumberLineComponent {
 
   handleSelect(element: Element): void {
     this.valueForCopy = '';
+    
     const coordinates = element.getBoundingClientRect();
     const offset = Math.round(coordinates.width) + 11;
-
     const nextInLine: Element = document.elementsFromPoint(
       coordinates.x + offset,
       coordinates.y + coordinates.height / 2

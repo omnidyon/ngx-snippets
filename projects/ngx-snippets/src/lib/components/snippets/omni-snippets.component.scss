@@ -131,6 +131,13 @@
     padding-left: 10px;
   }
 
+  .line-focus {
+    backdrop-filter: brightness(90%);
+    border-top: 1px solid var(--snippet-header-text-color);
+    border-bottom: 1px solid var(--snippet-header-text-color);
+    margin: -1px 0;
+  }
+
   .snippets {
     display: flex;
     flex-direction: row;

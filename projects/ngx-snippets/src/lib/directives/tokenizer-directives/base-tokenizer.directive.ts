@@ -2,6 +2,7 @@ import {
   Directive,
   ElementRef,
   Input,
+  OnDestroy,
   Renderer2,
   ViewContainerRef,
 } from '@angular/core';
@@ -12,7 +13,7 @@ import { NumberLineComponent } from '../../components/number-line/number-line.co
 @Directive({
   selector: '[omniBaseTokenizer]',
 })
-export abstract class BaseTokenizerDirective {
+export abstract class BaseTokenizerDirective implements OnDestroy {
   self!: HTMLPreElement;
   runningLine!: HTMLDialogElement;
   lineCount: number = 1;
@@ -36,7 +37,7 @@ export abstract class BaseTokenizerDirective {
       if (this.runningLine.children.length === 0) {
         this.renderer.setProperty(this.runningLine, 'innerHTML', `\n`);
       }
-      
+
       this.createLine();
       this.addNumberLine();
       this.lineNumber++;
@@ -73,7 +74,38 @@ export abstract class BaseTokenizerDirective {
     this.runningLine = this.renderer.createElement('div');
     this.renderer.setAttribute(this.runningLine, 'row-num', this.lineCount.toString());
     this.renderer.addClass(this.runningLine, 'line');
+    this.unListeners.push(
+      this.renderer.listen(this.runningLine, 'click', (event) =>
+        this.focus(event)
+      )
+    );
     this.renderer.appendChild(this.self, this.runningLine);
     this.lineCount++;
+  }
+
+  focus(event: Event): void {
+    const line = (event.target as HTMLElement).parentElement;
+    if (line && line.hasAttribute('row-num')) {
+      if (line.classList.contains('line-focus')) {
+        this.renderer.removeClass(line, 'line-focus');
+      } else {
+        this.clearFocus(line);
+        this.renderer.addClass(line, 'line-focus');
+      }
+    }
+  }
+
+  clearFocus(element: Element): void {
+    const parent = element.parentElement;
+    const divs = parent?.children;
+    if (divs) {
+      for (let i = 0; i < divs?.length; i++) {
+        this.renderer.removeClass(divs[i], 'line-focus');
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.unListeners.forEach((unListener) => unListener());
   }
 }

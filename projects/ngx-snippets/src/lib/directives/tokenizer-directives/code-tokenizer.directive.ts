@@ -18,8 +18,4 @@ export class CodeTokenizerDirective
     });
     this.addNumberLine();
   }
-
-  ngOnDestroy(): void {
-    this.unListeners.forEach((unListener) => unListener());
-  }
 }

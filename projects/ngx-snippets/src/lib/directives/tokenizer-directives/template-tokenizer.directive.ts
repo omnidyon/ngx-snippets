@@ -45,8 +45,4 @@ export class TemplateTokenizerDirective
     });
     this.addNumberLine();
   }
-
-  ngOnDestroy(): void {
-    this.unListeners.forEach((unListener) => unListener());
-  }
 }
