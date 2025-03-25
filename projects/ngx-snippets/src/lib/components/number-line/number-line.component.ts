@@ -18,7 +18,7 @@ export class NumberLineComponent {
   valueForCopy: string = '';
 
   @Input() number!: number;
-  
+
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
@@ -43,10 +43,14 @@ export class NumberLineComponent {
       coordinates.y + coordinates.height / 2
     )[0];
 
-    if (nextInLine.hasAttribute('row-num')) {
-      this.setLine(nextInLine);
-    } else if (nextInLine.parentElement) {
-      this.setLine(nextInLine.parentElement);
+    try {
+      if (nextInLine.hasAttribute('row-num')) {
+        this.setLine(nextInLine);
+      } else if (nextInLine.parentElement) {
+        this.setLine(nextInLine.parentElement);
+      }
+    } catch {
+      throw new Error('Failed to locate the code line');
     }
   }
 
