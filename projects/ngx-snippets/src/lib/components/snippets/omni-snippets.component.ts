@@ -43,6 +43,7 @@ import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.di
   styleUrls: [
     './omni-snippets.component.scss',
     '../../styles/defaults.scss',
+    '../../styles/tokens.scss',
     '../../styles/effects.scss',
   ],
 })
@@ -62,6 +63,7 @@ export class OmniSnippetsComponent {
   @Input() styleClass!: string;
   @Input() effects!: Effects;
   @Input() format: Formats = 'JavaScript';
+  @Input() header: boolean = true;
 
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;

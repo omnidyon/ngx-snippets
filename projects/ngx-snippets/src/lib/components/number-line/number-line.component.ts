@@ -18,6 +18,7 @@ export class NumberLineComponent {
   valueForCopy: string = '';
 
   @Input() number!: number;
+  
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
@@ -34,7 +35,7 @@ export class NumberLineComponent {
 
   handleSelect(element: Element): void {
     this.valueForCopy = '';
-    
+
     const coordinates = element.getBoundingClientRect();
     const offset = Math.round(coordinates.width) + 11;
     const nextInLine: Element = document.elementsFromPoint(

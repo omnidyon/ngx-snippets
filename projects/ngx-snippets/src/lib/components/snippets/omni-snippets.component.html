@@ -11,7 +11,7 @@
   <div class="snippets-content">
     <div
       class="snippets-header"
-      *ngIf="_snippets && _snippets.length > 1; else copyBlock">
+      *ngIf="header; else copyBlock">
       <div *ngFor="let snippet of _snippets; let i = index">
         <div
           class="snippet-tab"
