@@ -2,8 +2,19 @@ import { TokenData } from '../../interfaces/token.interface';
 import { HTML_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 
+const COMMENT_CONFIG = {
+  blockToken: {
+    startToken: '!--',
+    endToken: '--',
+  },
+};
+
 export class HTMLTokenizer extends BaseTokenizer {
-  splitExpression  = HTML_SPLIT;
+  splitExpression = HTML_SPLIT;
+
+  constructor() {
+    super(COMMENT_CONFIG);
+  }
 
   getClass(tokenData: TokenData): string {
     if (this.isQuoted(tokenData)) {

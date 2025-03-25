@@ -4,10 +4,18 @@ import { BaseTokenizer } from './base-tokenizer';
 import { CSS_PROP_TOKENS, CSS_TOKENS } from './tokens/css-tokens';
 import { HTML_TOKENS } from './tokens/html-tokens';
 
+const COMMENT_CONFIG = {
+  commentToken: '#',
+}
+
 export class CSSTokenizer extends BaseTokenizer {
   splitExpression = CSS_SPLIT;
   scopeLevelCurly: number = 1;
   scopeLevelRound: number = 1;
+
+  constructor() {
+    super(COMMENT_CONFIG);
+  }
 
   getClass(tokenData: TokenData): string {
     if (this.isQuoted(tokenData)) {

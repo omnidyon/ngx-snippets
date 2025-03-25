@@ -8,7 +8,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Token } from '../../interfaces/token.interface';
-import { BaseTokenizerDirective } from './base-tokenizer.directive';
+import { CodeHandlerDirective } from '../code-handler/code-handler.directive';
 import { Formats } from '../../types';
 import { TokenizerService } from '../../services/tokenizer.service';
 import { CopyService } from '../../services/copy.service';
@@ -17,7 +17,7 @@ import { CopyService } from '../../services/copy.service';
   selector: '[templateTokenizer]',
 })
 export class TemplateTokenizerDirective
-  extends BaseTokenizerDirective
+  extends CodeHandlerDirective
   implements AfterViewInit, OnDestroy
 {
   classifiedTokens: Token[] = [];

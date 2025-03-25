@@ -9,20 +9,26 @@ import {
   OPERATOR_TOKENS,
 } from './tokens/js-ts-tokens';
 
+const COMMENT_CONFIG = {
+  commentToken: '//',
+  blockToken: {
+    startToken: '/**',
+    endToken: '*/',
+  },
+}
+
 export class JSTokenizer extends BaseTokenizer {
   splitExpression = JS_SPLIT;
   scopeLevelRound: number = 1;
   scopeLevelSquare: number = 1;
   scopeLevelCurly: number = 1;
 
-  getClass(tokenData: TokenData): string {
-    if (this.isQuoted(tokenData)) {
-      this.quoted = !this.quoted;
-    }
+  constructor() {
+    super(COMMENT_CONFIG);
+  }
 
-    if (this.quoted || this.isQuoted(tokenData)) {
-      return 'quoted-token';
-    } else if (this.isSeparatorToken(tokenData)) {
+  getClass(tokenData: TokenData): string {
+    if (this.isSeparatorToken(tokenData)) {
       return 'separator-token';
     } else if (tokenData.token === '{') {
       return `scope-level-${this.scopeLevelCurly++}`;

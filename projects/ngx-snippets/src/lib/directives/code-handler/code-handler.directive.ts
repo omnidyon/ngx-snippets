@@ -10,10 +10,8 @@ import { Token } from '../../interfaces/token.interface';
 import { CopyService } from '../../services/copy.service';
 import { NumberLineComponent } from '../../components/number-line/number-line.component';
 
-@Directive({
-  selector: '[omniBaseTokenizer]',
-})
-export abstract class BaseTokenizerDirective implements OnDestroy {
+@Directive()
+export abstract class CodeHandlerDirective implements OnDestroy {
   self!: HTMLPreElement;
   runningLine!: HTMLDialogElement;
   lineCount: number = 1;

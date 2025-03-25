@@ -3,6 +3,10 @@ import { SnippetConfig } from "../../../../../ngx-snippets/src/lib/interfaces/sn
 export const EXAMPLE_SNIPPETS: SnippetConfig[] = [
   {
     template: `
+/**
+ *  Comment example
+ */
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -14,6 +18,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 
+// Comment example
 export class AppComponent {
     title = 'homes';
 }
@@ -22,6 +27,7 @@ export class AppComponent {
   },
   {
     template: `
+<!-- Comment Example -->
 <main>
     <header class="brand-name">
         <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
