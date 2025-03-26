@@ -12,7 +12,7 @@ import { By } from '@angular/platform-browser';
 class StudDirective extends CodeHandlerDirective {}
 
 describe('CodeHandlerDirective', () => {
-  it('should create an instance', () => {
+  it('Should create an instance', () => {
     const { directive } = setup();
     expect(directive).toBeTruthy();
   });

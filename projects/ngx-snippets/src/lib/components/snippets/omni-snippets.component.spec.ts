@@ -2,27 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { OmniSnippetsComponent } from './omni-snippets.component';
 import { NumberLineComponent } from '../number-line/number-line.component';
-import { SnippetConfig } from 'ngx-snippets';
-
-const TEST_SNIPPET: SnippetConfig = {
-  template: `
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  imports: [],
-  template: \`
-      <h1>Hello world!</h1>
-  \`,
-  styleUrls: ['./app.component.css'],
-})
-
-export class AppComponent {
-  title = 'homes';
-}
-`,
-  format: 'JavaScript',
-};
+import { TEST_SNIPPET } from '../../../test-data/snippet';
 
 describe('OmniSnippetsComponent', () => {
   it('should create', async () => {

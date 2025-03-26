@@ -4,7 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 describe('TemplateTokenizerDirective', () => {
-  it('should create an instance', () => {
+  it('Should create an instance', () => {
     const { directive } = setup();
     expect(directive).toBeTruthy();
   });
@@ -16,7 +16,7 @@ function setup() {
     imports: [TemplateTokenizerDirective],
     template: `
       <div class="snippets-gutter" #lineNumbers></div>
-      <div stud templateTokenizer [lineNumbers]="lineNumbers"></div>
+      <div templateTokenizer [lineNumbers]="lineNumbers"></div>
     `,
   })
   class TestHost {}
