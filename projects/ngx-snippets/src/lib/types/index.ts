@@ -1,2 +1,7 @@
 export type Formats = 'JavaScript' | 'TypeScript' | 'HTML' | 'CSS';
-export type Effects = 'RGB' | 'Neon-Blue' | 'Neon-Orange' | 'Neon-Green' | 'Neon-Red'
+export type Backlights =
+  | 'backlight-RGB'
+  | 'backlight-Blue'
+  | 'backlight-Orange'
+  | 'backlight-Green'
+  | 'backlight-Red';

@@ -18,7 +18,7 @@ import {
   NgClass,
   NgTemplateOutlet,
 } from '@angular/common';
-import { Effects, Formats } from '../../types';
+import { Backlights, Formats } from '../../types';
 import { TokenizerService } from '../../services/tokenizer.service';
 import { CopyService } from '../../services/copy.service';
 import { TemplateTokenizerDirective } from '../../directives/tokenizer-directives/template-tokenizer.directive';
@@ -61,7 +61,7 @@ export class OmniSnippetsComponent {
 
   @Input() style!: { [key: string]: any };
   @Input() styleClass!: string;
-  @Input() effects!: Effects;
+  @Input() backlight!: Backlights;
   @Input() format: Formats = 'JavaScript';
   @Input() header: boolean = true;
 

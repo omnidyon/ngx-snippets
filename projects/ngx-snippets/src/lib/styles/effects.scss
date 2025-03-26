@@ -4,25 +4,25 @@
   inherits: false;
 }
 
-.neon-blue,
-.neon-orange,
-.neon-green,
-.neon-red,
-.rgb {
+.backlight-blue,
+.backlight-orange,
+.backlight-green,
+.backlight-red,
+.backlight-rgb {
   position: relative;
   border-radius: var(--snippet-border-radius);
 }
 
-.neon-blue::after,
-.neon-blue::before,
-.neon-orange::after,
-.neon-orange::before,
-.neon-green::after,
-.neon-green::before,
-.neon-red::after,
-.neon-red::before,
-.rgb::after,
-.rgb::before {
+.backlight-blue::after,
+.backlight-blue::before,
+.backlight-orange::after,
+.backlight-orange::before,
+.backlight-green::after,
+.backlight-green::before,
+.backlight-red::after,
+.backlight-red::before,
+.backlight-rgb::after,
+.backlight-rgb::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -35,25 +35,25 @@
   animation: 6s spin linear infinite;
 }
 
-.neon-blue::after,
-.neon-orange::after,
-.neon-green::after,
-.neon-red::after,
-.rgb::after {
+.backlight-blue::after,
+.backlight-orange::after,
+.backlight-green::after,
+.backlight-red::after,
+.backlight-rgb::after {
   filter: blur(0.2px);
 }
 
-.neon-blue::before,
-.neon-orange::before,
-.neon-green::before,
-.neon-red::before,
-.rgb::before {
+.backlight-blue::before,
+.backlight-orange::before,
+.backlight-green::before,
+.backlight-red::before,
+.backlight-rgb::before {
   filter: blur(1.5rem);
   opacity: 0.5;
 }
 
-.rgb::after,
-.rgb::before {
+.backlight-rgb::after,
+.backlight-rgb::before {
   background-image: conic-gradient(
     from var(--angle),
     #ff4545,
@@ -64,8 +64,8 @@
   );
 }
 
-.neon-blue::after,
-.neon-blue::before {
+.backlight-blue::after,
+.backlight-blue::before {
   background-image: conic-gradient(
     from var(--angle),
     #5ddcff,
@@ -75,19 +75,19 @@
   );
 }
 
-.neon-orange::after,
-.neon-orange::before {
+.backlight-orange::after,
+.backlight-orange::before {
   background-image: conic-gradient(
     from var(--angle),
     #fdeda3,
     #d8a341,
     #a76d03,
-    #fdeda3,
+    #fdeda3
   );
 }
 
-.neon-green::after,
-.neon-green::before {
+.backlight-green::after,
+.backlight-green::before {
   background-image: conic-gradient(
     from var(--angle),
     #7efdd7,
@@ -97,8 +97,8 @@
   );
 }
 
-.neon-red::after,
-.neon-red::before {
+.backlight-red::after,
+.backlight-red::before {
   background-image: conic-gradient(
     from var(--angle),
     #fda0b7,

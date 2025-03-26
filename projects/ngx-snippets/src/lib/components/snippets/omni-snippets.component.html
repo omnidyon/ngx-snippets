@@ -2,23 +2,23 @@
   [class]="styleClass"
   [ngStyle]="style"
   [ngClass]="{
-    rgb: effects === 'RGB',
-    'neon-blue': effects === 'Neon-Blue',
-    'neon-orange': effects === 'Neon-Orange',
-    'neon-green': effects === 'Neon-Green',
-    'neon-red': effects === 'Neon-Red'
-  }">
+    'backlight-rgb': backlight === 'backlight-RGB',
+    'backlight-blue': backlight === 'backlight-Blue',
+    'backlight-orange': backlight === 'backlight-Orange',
+    'backlight-green': backlight === 'backlight-Green',
+    'backlight-red': backlight === 'backlight-Red'
+  }"
+>
   <div class="snippets-content">
-    <div
-      class="snippets-header"
-      *ngIf="header; else copyBlock">
+    <div class="snippets-header" *ngIf="header; else copyBlock">
       <div *ngFor="let snippet of _snippets; let i = index">
         <div
           class="snippet-tab"
           [ngClass]="{
             'active-tab': tab === snippet.format
           }"
-          (click)="switchSnippet(snippet.format, i)">
+          (click)="switchSnippet(snippet.format, i)"
+        >
           {{ snippet.format }}
         </div>
       </div>
@@ -48,7 +48,8 @@
               [lineNumbers]="lineNumbers"
               [format]="snippet.format"
               [tokens]="classifiedTokens[i]"
-              *ngSwitchCase="tab"></pre>
+              *ngSwitchCase="tab"
+            ></pre>
           </div>
         </div>
       </div>
