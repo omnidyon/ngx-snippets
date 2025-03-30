@@ -44,7 +44,7 @@ import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.di
     './omni-snippets.component.scss',
     '../../styles/defaults.scss',
     '../../styles/tokens.scss',
-    '../../styles/effects.scss',
+    '../../styles/backlight.scss',
   ],
 })
 export class OmniSnippetsComponent {
