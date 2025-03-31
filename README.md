@@ -1,65 +1,63 @@
-# NgxSnippets
+<h1 align="center">Ngx Snippets</h1>
 
-An Angular library used to present your code snippets in your applications.
+<a name="start"></a>
 
-## Installation
+<p align="center">
+  <img src="./imgs/D_dynamize-angular-icon.png" alt="dynamize-angular-logo" width="120px" height="120px"/>
+  <br>
+  <em>Ngx Snippets is an Angular library used to present code snippets in your Angular applications.</em>
+  <br>
+</p>
 
-Install the package using npm:
+<p align="center">
+  <a href="CONTRIBUTING.md">Contributing Guidelines</a>
+  ·
+  <a href="https://github.com/omnidyon/ngx-snippets/issues">Submit an Issue</a>
+    ·
+  <a href="./projects/ngx-snippets/README.md">Documentation</a>
+</p>
 
-```bash
-npm install ngx-snippets
-```
+## Documentation
 
-## Features
+### Full library documentation
 
-- Modern Angular (v19.2+) components and utilities
-- Fully tested and production-ready
-- TypeScript support
-- Easy integration with existing Angular projects
+If you need help on using Ngx Snippets please refer to the provided <a href="./projects/ngx-snippets/README.md">documentation</a>.
 
-## Development
+## Contributing
 
-This project uses Angular CLI version 19.2.0. To get started with development:
+### Contributing Guidelines
 
-1. Clone the repository
-2. Install dependencies:
+Read through our [contributing guidelines][contributing] to learn about our submission process, coding rules, and more.
+
+
+### Code of Conduct
+
+ Please read and follow our [Code of Conduct][codeofconduct].
+
+## Development 
+
+### Development Setup
+
+1. Fork the repo - see full <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">guide</a>.
+
+2. Clone the repo - see full <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository">guide</a>.
+
+3. Go to the root of the library and install dependencies.
 ```bash
 npm install
 ```
 
-3. Start the development server:
+4. Run library in watch mode
+```bash
+npm run watch
+```
+5. Run the examples project
 ```bash
 npm start
 ```
 
-The application will be available at `http://localhost:4200/`.
+**Found Ngx Snippets useful? Give the repo a star :star: :arrow_up:.**
 
-## Building the Library
-
-To build the library:
-
-```bash
-npm run build
-```
-
-The build artifacts will be stored in the `dist/` directory.
-
-## Testing
-
-Run unit tests with:
-
-```bash
-npm test
-```
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For issues and feature requests, please use the GitHub issue tracker.
+[contributing]: CONTRIBUTING.md
+[codeofconduct]: CODE_OF_CONDUCT.md
+[documentation]: ./projects/ngx-snippets/README.md
