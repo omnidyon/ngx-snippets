@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Directive,
   ElementRef,
+  inject,
   Input,
   OnDestroy,
   Renderer2,
@@ -24,15 +25,7 @@ export class TemplateTokenizerDirective
 
   @Input() format!: Formats;
 
-  constructor(
-    public override readonly elementRef: ElementRef,
-    public override readonly renderer: Renderer2,
-    public override readonly copyService: CopyService,
-    public override readonly viewContainer: ViewContainerRef,
-    private tokenizerService: TokenizerService
-  ) {
-    super(elementRef, renderer, copyService, viewContainer);
-  }
+  private readonly tokenizerService = inject(TokenizerService);
 
   ngAfterViewInit(): void {
     this.classifiedTokens = this.tokenizerService.tokenize(

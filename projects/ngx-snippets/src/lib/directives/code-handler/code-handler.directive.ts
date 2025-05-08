@@ -1,6 +1,7 @@
 import {
   Directive,
   ElementRef,
+  inject,
   Input,
   OnDestroy,
   Renderer2,
@@ -20,11 +21,12 @@ export abstract class CodeHandlerDirective implements OnDestroy {
 
   @Input() lineNumbers!: HTMLDivElement;
 
+  readonly elementRef = inject(ElementRef);
+  readonly renderer = inject(Renderer2);
+  readonly copyService = inject(CopyService);
+  readonly viewContainer = inject(ViewContainerRef);
+
   constructor(
-    public readonly elementRef: ElementRef,
-    public readonly renderer: Renderer2,
-    public readonly copyService: CopyService,
-    public readonly viewContainer: ViewContainerRef
   ) {
     this.self = this.elementRef.nativeElement;
     this.createLine();
