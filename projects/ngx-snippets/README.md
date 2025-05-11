@@ -69,7 +69,7 @@ interface SnippetConfig {
 Config Example:
 
 ```javascript
-  {
+{
     template: `
 /**
  *  Comment example
@@ -92,7 +92,7 @@ export class AppComponent {
 }
 `,
     format: 'TypeScript',
-  },
+}
 ```
 
 </p>
@@ -118,28 +118,28 @@ Here is a list of values we can change to custom style and there meanings
 | --snippets-gutter-width           | number lines width                | 72px          |
 | --snippets-scrollbar-width        | scroll bar vertical width         | 5px           |
 | --snippets-scrollbar-height       | scroll bar horizontal width       | 5px           |
-| --snippet-background-color        | main background color             | #202836       |
-| --snippet-header-background-color | header background color           | #1a212b       |
-| --snippet-header-text-color       | header text color                 | #61789e       |
-| --number-line-highlight-color     | color of the number when selected | #38e9ae       |
-| --number-line-hover-color         | color of the number when hovered  | #07cc8a       |
-| --ka-token-color                  | Keyword group A color             | #e1955d       |
-| --kb-token-color                  | Keyword group B color             | #ff8c5f       |
-| --kc-token-color                  | Keyword group C color             | #22e2b8       |
-| --quoted-token-color              | quotes and quoted text color      | #34ec71       |
-| --data-token-color                | color of data type tokens         | #a98adf       |
-| --function-token-color            | color of function names           | #44b7ff       |
-| --separator-token-color           | color of , : ;                    | #676e70       |
-| --property-token-color            | property name token color         | #ff8c5f       |
-| --operator-token-color            | color of operator tokens          | #f8c49e       |
-| --parameter-token-color           | color of parameter tokens         | #f371a6       |
-| --var-token-color                 | color of variable tokens          | #cfddd2       |
+| --snippet-background-color        | main background color             | #202836     |
+| --snippet-header-background-color | header background color           | #1a212b     |
+| --snippet-header-text-color       | header text color                 | #61789e     |
+| --number-line-highlight-color     | color of the number when selected | #38e9ae     |
+| --number-line-hover-color         | color of the number when hovered  | #07cc8a     |
+| --ka-token-color                  | Keyword group A color             | #e1955d     |
+| --kb-token-color                  | Keyword group B color             | #ff8c5f     |
+| --kc-token-color                  | Keyword group C color             | #22e2b8     |
+| --quoted-token-color              | quotes and quoted text color      | #34ec71     |
+| --data-token-color                | color of data type tokens         | #a98adf     |
+| --function-token-color            | color of function names           | #44b7ff     |
+| --separator-token-color           | color of , : ;                    | #676e70     |
+| --property-token-color            | property name token color         | #ff8c5f     |
+| --operator-token-color            | color of operator tokens          | #f8c49e     |
+| --parameter-token-color           | color of parameter tokens         | #f371a6     |
+| --var-token-color                 | color of variable tokens          | #cfddd2     |
 | --comment-token-color             | color of comments                 | gray          |
 | --text-token-color                | color of remaining tokens         | lightgray     |
 | --element-token-color             | html element name color           | salmon        |
-| --attribute-color                 | html attribute color              | #ffd255       |
-| --special-char-token-color        | special charter color             | #4cdaab       |
-| --check-icon-color                | color of check icon               | #38e9ae       |
+| --attribute-color                 | html attribute color              | #ffd255     |
+| --special-char-token-color        | special charter color             | #4cdaab     |
+| --check-icon-color                | color of check icon               | #38e9ae     |
 | --copy-icon-path                  | svg path for the copy icon        | --            |
 | --check-icon-path                 | svg path for the check icon       | --            |
 | --snippet-font                    | fonts                             | Ubuntu        |

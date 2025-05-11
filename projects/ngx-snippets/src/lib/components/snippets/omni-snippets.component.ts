@@ -14,7 +14,6 @@ import {
   NgFor,
   NgSwitch,
   NgSwitchCase,
-  NgStyle,
   NgClass,
   NgTemplateOutlet,
 } from '@angular/common';
@@ -34,7 +33,6 @@ import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.di
     NgFor,
     NgSwitch,
     NgSwitchCase,
-    NgStyle,
     NgClass,
     NgTemplateOutlet,
   ],
@@ -59,8 +57,6 @@ export class OmniSnippetsComponent {
     @Host() @Self() private copyService: CopyService
   ) {}
 
-  @Input() style!: { [key: string]: any };
-  @Input() styleClass!: string;
   @Input() backlight!: Backlights;
   @Input() format: Formats = 'JavaScript';
   @Input() header: boolean = true;
