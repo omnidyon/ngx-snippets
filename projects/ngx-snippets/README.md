@@ -28,7 +28,7 @@ npm install @omnidyon/ngx-snippets
 <p>
 You can use the snippets in two ways.
 
-Ether by passing it a snippet config array (see: SnippetConfig):
+Ether by passing it a snippet config array (see: [Snippet Config](#snippet_config)):
 
 ```javascript
 <omni-snippets [snippets]="[exampleSnippets[0]]"></omni-snippets>
@@ -56,6 +56,8 @@ Or by providing the snippet in a template:
 
 <details><summary><b>Snippet Config</b></summary>
 <p>
+
+<a name="snippet_config"></a>
 
 SnippetConfig is an interface defining snippets configuration
 
@@ -162,5 +164,10 @@ Example
   ></omni-snippets>
 ```
 
+List of effect:
+
+| Effect Input Name    | Effecting Result                 |
+| -------------------- | -------------------------------- | 
+| backlight            | Applies Backlight to the snippet |
 </p>
 </details>

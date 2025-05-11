@@ -1,7 +1,21 @@
+/**
+ * @license
+ * Copyright Slavko Mihajlovic All Rights Reserved.
+ *
+ * Use of this source code is governed by an ISC-style license that can be
+ * found at https://www.isc.org/licenses/
+ */
+
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
 import { CopyService } from '../../services/copy.service';
 
+/**
+ * @internal
+ * @description
+ * A component used for showing the line numbers in the gutter as well as handling
+ * single line copy functionality
+ */
 @Component({
   selector: 'omni-number-line',
   imports: [NgClass],
@@ -20,9 +34,9 @@ export class NumberLineComponent {
   @Input() number!: number;
 
   constructor(
-    private elementRef: ElementRef,
-    private renderer: Renderer2,
-    private copyService: CopyService
+    private readonly elementRef: ElementRef,
+    private readonly renderer: Renderer2,
+    private readonly copyService: CopyService
   ) {
     this.self = this.elementRef.nativeElement;
   }

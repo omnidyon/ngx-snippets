@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright Slavko Mihajlovic All Rights Reserved.
+ *
+ * Use of this source code is governed by an ISC-style license that can be
+ * found at https://www.isc.org/licenses/
+ */
+
 import {
   Component,
   ContentChild,
@@ -23,6 +31,19 @@ import { CopyService } from '../../services/copy.service';
 import { TemplateTokenizerDirective } from '../../directives/tokenizer-directives/template-tokenizer.directive';
 import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.directive';
 
+
+/**
+ * @publicApi
+ * @description
+ * The main component of the library, the actually snippets are being shown from this
+ * components view.
+ *
+ * @usageNotes
+ * <omni-snippets
+ *  [snippets]="exampleSnippets"  -{@link SnippetConfig}
+ *  backlight="backlight-Green"   -{@link Backlights}  effect applied to the snippet
+ * ></omni-snippets>
+ */
 @Component({
   selector: 'omni-snippets',
   imports: [

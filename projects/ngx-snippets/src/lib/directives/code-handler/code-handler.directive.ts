@@ -1,3 +1,11 @@
+/**
+ * @license
+ * Copyright Slavko Mihajlovic All Rights Reserved.
+ *
+ * Use of this source code is governed by an ISC-style license that can be
+ * found at https://www.isc.org/licenses/
+ */
+
 import {
   Directive,
   ElementRef,
@@ -11,6 +19,15 @@ import { Token } from '../../interfaces/token.interface';
 import { CopyService } from '../../services/copy.service';
 import { NumberLineComponent } from '../../components/number-line/number-line.component';
 
+/**
+ * @internal
+ * @description
+ * A base directive used by both {@link CodeTokenizerDirective} and {@link TemplateTokenizerDirective},
+ * responsible, applying  proper styling to the code(mostly coloring), numbering the lines,
+ * and handling line focus,
+ *
+ * For token definition please refer to: https://en.wikipedia.org/wiki/Token#Computing
+ */
 @Directive()
 export abstract class CodeHandlerDirective implements OnDestroy {
   self!: HTMLPreElement;
