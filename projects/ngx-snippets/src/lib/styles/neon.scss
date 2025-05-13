@@ -1,0 +1,98 @@
+@import "./effect-colors.scss";
+
+.gutter-neon-green,
+.gutter-neon-orange,
+.gutter-neon-red,
+.header-neon-green,
+.header-neon-red,
+.header-neon-orange,
+.header-neon-blue {
+  position: relative;
+}
+
+.header-neon-green::after,
+.gutter-neon-green::after,
+.header-neon-red::after,
+.gutter-neon-red::after,
+.header-neon-orange::after,
+.gutter-neon-orange::after,
+.header-neon-blue::after,
+.gutter-neon-blue::after {
+  content: "";
+  position: absolute;
+}
+
+.header-neon-green::after,
+.header-neon-red::after,
+.header-neon-orange::after,
+.header-neon-blue::after {
+  width: 100%;
+  height: 2px;
+  left: 0;
+  top: -1px;
+}
+
+.gutter-neon-green::after,
+.gutter-neon-red::after,
+.gutter-neon-orange::after,
+.gutter-neon-blue::after {
+  width: 1px;
+  height: 100%;
+  right: -1px;
+  bottom: 0;
+}
+
+.header-neon-blue::after {
+  background-color: var(--effect-blue-1);
+  box-shadow: 0px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+  -moz-box-shadow: 0px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+}
+
+.gutter-neon-blue::after {
+  background-color: var(--effect-blue-1);
+  box-shadow: 3px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+  -webkit-box-shadow: 3px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+  -moz-box-shadow: 3px 0px 20px 2px toRGBA(#4e76f0, 0.5);
+}
+
+.header-neon-green::after {
+  background-color: var(--effect-green-1);
+  box-shadow: 0px 0px 20px 2px toRGBA(#34c280, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 2px toRGBA(#34c280, 0.5);
+  -moz-box-shadow: 0px 0px 20px 2px toRGBA(#34c280, 0.5);
+}
+
+.gutter-neon-green::after {
+  background-color: var(--effect-green-1);
+  box-shadow: 3px 0px 20px 2px toRGBA(#34c280, 0.5);
+  -webkit-box-shadow: 3px 0px 20px 2px toRGBA(#34c280, 0.5);
+  -moz-box-shadow: 3px 0px 20px 2px toRGBA(#34c280, 0.5);
+}
+
+.header-neon-red::after {
+  background-color: var(--effect-red-1);
+  box-shadow: 0px 0px 20px 2px toRGBA(#d8418c, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 2px toRGBA(#d8418c, 0.5);
+  -moz-box-shadow: 0px 0px 20px 2px toRGBA(#d8418c, 0.5);
+}
+
+.gutter-neon-red::after {
+  background-color: var(--effect-red-1);
+  box-shadow: 3px 0px 20px 2px toRGBA(#d8418c, 0.5);
+  -webkit-box-shadow: 3px 0px 20px 2px toRGBA(#d8418c, 0.5);
+  -moz-box-shadow: 3px 0px 20px 2px toRGBA(#d8418c, 0.5);
+}
+.header-neon-orange::after {
+  background-color: var(--effect-orange-1);
+  box-shadow: 0px 0px 20px 2px toRGBA(#d8a341, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 2px toRGBA(#d8a341, 0.5);
+  -moz-box-shadow: 0px 0px 20px 2px toRGBA(#d8a341, 0.5);
+}
+
+.gutter-neon-orange::after {
+  background-color: var(--effect-orange-1);
+  box-shadow: 3px 0px 20px 2px toRGBA(#d8a341, 0.5);
+  -webkit-box-shadow: 3px 0px 20px 2px toRGBA(#d8a341, 0.5);
+  -moz-box-shadow: 3px 0px 20px 2px toRGBA(#d8a341, 0.5);
+}

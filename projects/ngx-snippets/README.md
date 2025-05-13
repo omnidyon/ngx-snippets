@@ -11,7 +11,7 @@ An Angular library for adding code snippets top you application. It's easy to us
 
 ---
 
-<details><summary><b>Installing</b></summary>
+<details><summary><b style="font-size: 20px;">Installing</b></summary>
 <p>
 To add the library to your project run the following command from the root of the project:
 
@@ -24,7 +24,7 @@ npm install @omnidyon/ngx-snippets
 
 ---
 
-<details><summary><b>Usage Examples</b></summary>
+<details><summary><b style="font-size: 20px;">Usage Examples</b></summary>
 <p>
 You can use the snippets in two ways.
 
@@ -54,7 +54,7 @@ Or by providing the snippet in a template:
 
 ---
 
-<details><summary><b>Snippet Config</b></summary>
+<details><summary><b style="font-size: 20px;">Snippet Config</b></summary>
 <p>
 
 <a name="snippet_config"></a>
@@ -102,7 +102,7 @@ export class AppComponent {
 
 ---
 
-<details><summary><b>Styling</b></summary>
+<details><summary><b style="font-size: 20px;">Styling</b></summary>
 <p>
 When installed the snippets will come in a default style.
 
@@ -151,7 +151,7 @@ Here is a list of values we can change to custom style and there meanings
 
 ---
 
-<details><summary><b>Effects</b></summary>
+<details><summary><b style="font-size: 20px;">Effects</b></summary>
 <p>
 Ngx Snippets comes with prebuilt effects for you use:
 
@@ -166,8 +166,9 @@ Example
 
 List of effect:
 
-| Effect Input Name    | Effecting Result                 |
-| -------------------- | -------------------------------- | 
-| backlight            | Applies Backlight to the snippet |
+| Effect Input Name    | Effecting Result                                                       |
+| -------------------- | ---------------------------------------------------------------------- | 
+| backlight            | Applies Backlight to the snippet                                       |
+| neon                 | Applies neon glow to the gutter separator line and lower header border |
 </p>
 </details>

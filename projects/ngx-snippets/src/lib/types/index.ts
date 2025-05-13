@@ -23,3 +23,10 @@ export type Backlights =
   | 'backlight-Orange'
   | 'backlight-Green'
   | 'backlight-Red';
+
+export type Neons =
+  | 'neon-RGB'
+  | 'neon-Blue'
+  | 'neon-Orange'
+  | 'neon-Green'
+  | 'neon-Red';

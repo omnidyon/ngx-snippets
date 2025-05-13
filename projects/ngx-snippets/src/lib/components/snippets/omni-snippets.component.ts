@@ -25,7 +25,7 @@ import {
   NgClass,
   NgTemplateOutlet,
 } from '@angular/common';
-import { Backlights, Formats } from '../../types';
+import { Backlights, Formats, Neons } from '../../types';
 import { TokenizerService } from '../../services/tokenizer.service';
 import { CopyService } from '../../services/copy.service';
 import { TemplateTokenizerDirective } from '../../directives/tokenizer-directives/template-tokenizer.directive';
@@ -64,6 +64,7 @@ import { RecordForCopyDirective } from '../../directives/copy/record-for-copy.di
     '../../styles/defaults.scss',
     '../../styles/tokens.scss',
     '../../styles/backlight.scss',
+    '../../styles/neon.scss'
   ],
 })
 export class OmniSnippetsComponent {
@@ -79,6 +80,7 @@ export class OmniSnippetsComponent {
   ) {}
 
   @Input() backlight!: Backlights;
+  @Input() neon!: Neons;
   @Input() format: Formats = 'JavaScript';
   @Input() header: boolean = true;
 

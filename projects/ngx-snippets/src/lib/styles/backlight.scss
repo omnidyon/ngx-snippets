@@ -1,3 +1,5 @@
+@import "./effect-colors.scss";
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -48,7 +50,7 @@
 .backlight-green::before,
 .backlight-red::before,
 .backlight-rgb::before {
-  filter: blur(1.5rem);
+  filter: blur(24px);
   opacity: 0.5;
 }
 
@@ -56,11 +58,11 @@
 .backlight-rgb::before {
   background-image: conic-gradient(
     from var(--angle),
-    #ff4545,
-    #00ff99,
-    #006aff,
-    #ff0095,
-    #ff4545
+    var(--rainbow-1),
+    var(--rainbow-2),
+    var(--rainbow-3),
+    var(--rainbow-4),
+    var(--rainbow-5)
   );
 }
 
@@ -68,10 +70,10 @@
 .backlight-blue::before {
   background-image: conic-gradient(
     from var(--angle),
-    #5ddcff,
-    #4e76f0,
-    #4e4be7,
-    #5ddcff
+    var(--effect-blue-1),
+    var(--effect-blue-2),
+    var(--effect-blue-3),
+    var(--effect-blue-1)
   );
 }
 
@@ -79,10 +81,10 @@
 .backlight-orange::before {
   background-image: conic-gradient(
     from var(--angle),
-    #fdeda3,
-    #d8a341,
-    #a76d03,
-    #fdeda3
+    var(--effect-orange-1),
+    var(--effect-orange-2),
+    var(--effect-orange-3),
+    var(--effect-orange-1)
   );
 }
 
@@ -90,10 +92,10 @@
 .backlight-green::before {
   background-image: conic-gradient(
     from var(--angle),
-    #7efdd7,
-    #34c280,
-    #058b54,
-    #7efdd7
+    var(--effect-green-1),
+    var(--effect-green-2),
+    var(--effect-green-3),
+    var(--effect-green-1)
   );
 }
 
@@ -101,10 +103,10 @@
 .backlight-red::before {
   background-image: conic-gradient(
     from var(--angle),
-    #fda0b7,
-    #d8418c,
-    #970555,
-    #fda0b7
+    var(--effect-red-1),
+    var(--effect-red-2),
+    var(--effect-red-3),
+    var(--effect-red-1)
   );
 }
 

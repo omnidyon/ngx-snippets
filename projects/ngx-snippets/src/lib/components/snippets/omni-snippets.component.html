@@ -1,22 +1,16 @@
-<div
-  [ngClass]="{
+<div [ngClass]="{
     'backlight-rgb': backlight === 'backlight-RGB',
     'backlight-blue': backlight === 'backlight-Blue',
     'backlight-orange': backlight === 'backlight-Orange',
     'backlight-green': backlight === 'backlight-Green',
     'backlight-red': backlight === 'backlight-Red'
-  }"
->
+  }">
   <div class="snippets-content">
     <div class="snippets-header" *ngIf="header; else copyBlock">
       <div *ngFor="let snippet of _snippets; let i = index">
-        <div
-          class="snippet-tab"
-          [ngClass]="{
+        <div class="snippet-tab" [ngClass]="{
             'active-tab': tab === snippet.format
-          }"
-          (click)="switchSnippet(snippet.format, i)"
-        >
+          }" (click)="switchSnippet(snippet.format, i)">
           {{ snippet.format }}
         </div>
       </div>
@@ -34,28 +28,50 @@
       </div>
     </ng-template>
     <div class="snippets" *ngIf="_snippets; else templateBlock">
-      <div class="snippets-gutter" #lineNumbers></div>
-      <div class="snippets-code-lines">
+      <div
+        class="snippets-gutter"
+        [ngClass]="{
+          'gutter-neon-blue': neon === 'neon-Blue',
+          'gutter-neon-green': neon === 'neon-Green',
+          'gutter-neon-red': neon === 'neon-Red',
+          'gutter-neon-orange': neon === 'neon-Orange'
+        }"
+        #lineNumbers></div>
+      <div
+        class="snippets-code-lines"
+        [ngClass]="{
+          'header-neon-blue': neon === 'neon-Blue',
+          'header-neon-green': neon === 'neon-Green',
+          'header-neon-red': neon === 'neon-Red',
+          'header-neon-orange': neon === 'neon-Orange'
+        }">
         <div *ngIf="_snippets?.length">
-          <div
-            *ngFor="let snippet of _snippets; let i = index"
-            [ngSwitch]="snippet.format"
-          >
-            <pre
-              codeTokenizer
-              [lineNumbers]="lineNumbers"
-              [format]="snippet.format"
-              [tokens]="classifiedTokens[i]"
-              *ngSwitchCase="tab"
-            ></pre>
+          <div *ngFor="let snippet of _snippets; let i = index" [ngSwitch]="snippet.format">
+            <pre codeTokenizer [lineNumbers]="lineNumbers" [format]="snippet.format" [tokens]="classifiedTokens[i]"
+              *ngSwitchCase="tab"></pre>
           </div>
         </div>
       </div>
     </div>
     <ng-template #templateBlock>
       <div class="snippets">
-        <div class="snippets-gutter" #lineNumbers></div>
-        <div class="snippets-code-lines">
+        <div
+          class="snippets-gutter"
+          [ngClass]="{
+            'gutter-neon-blue': neon === 'neon-Blue',
+            'gutter-neon-green': neon === 'neon-Green',
+            'gutter-neon-red': neon === 'neon-Red',
+            'gutter-neon-orange': neon === 'neon-Orange'
+          }"
+          #lineNumbers></div>
+        <div
+          class="snippets-code-lines"
+          [ngClass]="{
+            'header-neon-blue': neon === 'neon-Blue',
+            'header-neon-green': neon === 'neon-Green',
+            'header-neon-red': neon === 'neon-Red',
+            'header-neon-orange': neon === 'neon-Orange'
+          }">
           <pre recordForCopy templateTokenizer [lineNumbers]="lineNumbers">
             <ng-container *ngTemplateOutlet="template"></ng-container>
           </pre>
