@@ -31,7 +31,7 @@ You can use the snippets in two ways.
 Ether by passing it a snippet config array (see: [Snippet Config](#snippet_config)):
 
 ```javascript
-<omni-snippets [snippets]="[exampleSnippets[0]]"></omni-snippets>
+<omni-snippets [snippets]="exampleSnippets"></omni-snippets>
 ```
 
 Or by providing the snippet in a template:
@@ -54,10 +54,10 @@ Or by providing the snippet in a template:
 
 ---
 
-<details><summary><b style="font-size: 20px;">Snippet Config</b></summary>
+<details><summary><b style="font-size: 20px;">Snippet Config <a name="snippet_config"></a></b></summary>
 <p>
 
-<a name="snippet_config"></a>
+
 
 SnippetConfig is an interface defining snippets configuration
 
