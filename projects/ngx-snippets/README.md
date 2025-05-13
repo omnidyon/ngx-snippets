@@ -54,12 +54,11 @@ Or by providing the snippet in a template:
 
 ---
 
-<details><summary><b style="font-size: 20px;">Snippet Config <a name="snippet_config"></a></b></summary>
+<details><summary><b style="font-size: 20px;">Snippet Config</b></summary>
 <p>
 
-
-
 SnippetConfig is an interface defining snippets configuration
+<a name="snippet_config"></a>
 
 ```javascript
 interface SnippetConfig {

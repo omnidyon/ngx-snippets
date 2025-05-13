@@ -1,0 +1,5 @@
+{
+  "name": "@omnidyon/ngx-snippets",
+  "version": "1.0.0",
+  "exports": "./src/public_api.ts"
+}

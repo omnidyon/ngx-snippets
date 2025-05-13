@@ -1,6 +1,6 @@
 {
-  "name": "ngx-snippets",
-  "version": "0.0.1",
+  "name": "@omnidyon/ngx-snippets",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": ">=16.0.0",
     "@angular/core": ">=16.0.0"
@@ -9,5 +9,13 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "private": false
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omnidyon/ngx-snippets"
+  },
+  "author": "Slavko Mihajlovic",
+  "bugs": {
+    "url": "https://github.com/omnidyon/ngx-snippets/issues"
+  }
 }
