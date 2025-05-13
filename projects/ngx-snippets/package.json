@@ -1,6 +1,6 @@
 {
   "name": "@omnidyon/ngx-snippets",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "peerDependencies": {
     "@angular/common": ">=16.0.0",
     "@angular/core": ">=16.0.0"
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/omnidyon/ngx-snippets/issues"
   },
-  "homepage": "https://github.com/omnidyon/ngx-snippets/blob/master/projects/ngx-snippets/README.md",
+  "homepage": "https://github.com/omnidyon/ngx-snippets/blob/master/projects/ngx-snippets#readme",
   "license": "ISC",
   "keywords": [
     "Angular",
