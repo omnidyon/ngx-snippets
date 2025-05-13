@@ -1,6 +1,6 @@
 {
   "name": "@omnidyon/ngx-snippets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": ">=16.0.0",
     "@angular/core": ">=16.0.0"
@@ -17,5 +17,35 @@
   "author": "Slavko Mihajlovic",
   "bugs": {
     "url": "https://github.com/omnidyon/ngx-snippets/issues"
-  }
+  },
+  "homepage": "https://github.com/omnidyon/ngx-snippets/blob/master/projects/ngx-snippets/README.md",
+  "license": "ISC",
+  "keywords": [
+    "Angular",
+    "Angular 2",
+    "Angular2",
+    "Angular 19",
+    "angular",
+    "angular 2",
+    "angular2",
+    "angular 19",
+    "snippets",
+    "snippets",
+    "Snippet",
+    "Snippets",
+    "code",
+    "Code",
+    "javascript",
+    "typescript",
+    "html",
+    "css",
+    "JavaScript",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "Example",
+    "Styling",
+    "Theming",
+    "Theme"
+  ]
 }

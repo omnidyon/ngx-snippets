@@ -1,12 +1,13 @@
 {
-  "name": "ngx-snippets",
-  "version": "1.0.0",
+  "name": "@omnidyon/ngx-snippets",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve examples",
     "build": "ng build ngx-snippets",
     "watch": "ng build ngx-snippets --watch",
-    "test": "ng test --source-map=false"
+    "test": "ng test --source-map=false",
+    "publish": "npm publish && npx jsr publish"
   },
   "private": false,
   "dependencies": {
@@ -34,5 +35,43 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.2.0",
     "typescript": "~5.7.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omnidyon/ngx-snippets"
+  },
+  "author": "Slavko Mihajlovic",
+  "bugs": {
+    "url": "https://github.com/omnidyon/ngx-snippets/issues"
+  },
+  "homepage": "https://github.com/omnidyon/ngx-snippets/blob/master/projects/ngx-snippets/README.md",
+  "license": "ISC",
+  "keywords": [
+    "Angular",
+    "Angular 2",
+    "Angular2",
+    "Angular 19",
+    "angular",
+    "angular 2",
+    "angular2",
+    "angular 19",
+    "snippets",
+    "snippets",
+    "Snippet",
+    "Snippets",
+    "code",
+    "Code",
+    "javascript",
+    "typescript",
+    "html",
+    "css",
+    "JavaScript",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "Example",
+    "Styling",
+    "Theming",
+    "Theme"
+  ]
 }
