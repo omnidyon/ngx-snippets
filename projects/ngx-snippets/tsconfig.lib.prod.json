@@ -7,5 +7,9 @@
   },
   "angularCompilerOptions": {
     "compilationMode": "partial"
-  }
+  },
+  "paths": {
+    "@omnidyon/ngx-snippets": ["./dist/ngx-snippets/public-api.ts"],
+    "@omnidyon/ngx-snippets/*": [ "./dist/ngx-snippets/*"]
+  },
 }
