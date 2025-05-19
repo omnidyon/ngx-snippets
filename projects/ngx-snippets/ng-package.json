@@ -3,5 +3,6 @@
   "dest": "../../dist/ngx-snippets",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["ngx-snippets"]
 }
