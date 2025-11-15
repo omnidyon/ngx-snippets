@@ -8,7 +8,7 @@
     "build": "ng build ngx-snippets",
     "watch": "ng build ngx-snippets --watch",
     "test": "ng test --source-map=false",
-    "publish": "npm publish && npx jsr publish"
+    "publish:lib": "npm run build && npm publish dist/ngx-snippets && npx jsr publish"
   },
   "private": false,
   "dependencies": {
