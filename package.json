@@ -1,6 +1,6 @@
 {
   "name": "@omnidyon/ngx-snippets",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "An Angular library for adding code snippets top you application. It's easy to use, flexible and lightweight.",
   "scripts": {
     "ng": "ng",
