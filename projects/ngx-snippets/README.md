@@ -25,6 +25,11 @@ npm install @omnidyon/ngx-snippets
 
 <details><summary><b style="font-size: 20px;">Usage Examples</b></summary>
 <p>
+Import the snippet:
+
+```javascript
+import { OmniSnippetsComponent } from '@omnidyon/ngx-snippets';
+```
 You can use the snippets in two ways.
 
 Ether by passing it a snippet config array (see: [Snippet Config](#snippet_config)):
@@ -64,6 +69,10 @@ interface SnippetConfig {
   template: string;
   format: "JavaScript" | "TypeScript" | "HTML" | "CSS";
 }
+```
+It is also available straight from the library (preferred): 
+```javascript
+import { SnippetConfig } from '@omnidyon/ngx-snippets';
 ```
 
 Config Example:
@@ -152,6 +161,10 @@ Here is a list of values we can change to custom style and there meanings
 <details><summary><b style="font-size: 20px;">Effects</b></summary>
 <p>
 Ngx Snippets comes with prebuilt effects for you use:
+
+```javascript
+import { Backlights, OmniSnippetsComponent, SnippetConfig } from '@omnidyon/ngx-snippets';
+```
 
 Example
 

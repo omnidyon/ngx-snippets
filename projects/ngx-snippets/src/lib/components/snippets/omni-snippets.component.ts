@@ -79,7 +79,7 @@ export class OmniSnippetsComponent {
     @Host() @Self() private copyService: CopyService
   ) {}
 
-  @Input() backlight!: Backlights;
+  @Input() backlight!: Backlights | null;
   @Input() neon!: Neons;
   @Input() format: Formats = 'JavaScript';
   @Input() header: boolean = true;
