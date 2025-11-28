@@ -5,12 +5,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub stars](https://img.shields.io/github/stars/omnidyon/ngx-snippets?style=social)](https://github.com/omnidyon/ngx-snippets)
 
-<h1 align="center">Ngx Snippets</h1>
-
 <a name="start"></a>
 
 <p align="center">
-  <img src="./imgs/D_dynamize-angular-icon.png" alt="dynamize-angular-logo" width="120px" height="120px"/>
+  <img src="./imgs/ngx-snippets-full.svg" alt="ngx-snippets-full" width="400px" height="400px"/>
   <br>
   <em>Ngx Snippets is an Angular library used to present code snippets in your Angular applications.</em>
   <br>
