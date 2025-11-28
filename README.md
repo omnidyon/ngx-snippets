@@ -23,7 +23,7 @@
 </p>
 
 **Live Demo**  
-[Check out the full interactive playground](https://omnidyon.com/tools/ngx-snippets)  
+[Check out the full interactive playground](https://omnidyon.com/project-demo/ngx-validator-pack)  
 _(Includes copy/paste functionality, custom styling, and theme creation preview.)_
 
 Found this useful? [Star the repo](https://github.com/omnidyon/ngx-snippets)  
