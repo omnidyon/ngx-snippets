@@ -34,7 +34,7 @@ jobs:
 
       # If your Angular workspace uses something else, adjust this
       - name: Build Angular library
-        run: npm run build ngx-snippets
+        run: npm run build
 
       - name: Publish package to npm (OIDC, no token)
         working-directory: dist/ngx-snippets
