@@ -1,4 +1,5 @@
-@import "./effect-colors.scss";
+@use "./effect-colors.scss";
+@use "./color-utils.scss" as *;
 
 .gutter-neon-green,
 .gutter-neon-orange,

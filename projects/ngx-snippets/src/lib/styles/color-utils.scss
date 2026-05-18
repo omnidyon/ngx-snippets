@@ -1,9 +1,17 @@
+@use "sass:color";
+
 @function toValues($color) {
-  @return red($color) + ', ' + green($color) + ', ' + blue($color);
+  @return color.channel($color, "red", $space: rgb) + ', ' +
+          color.channel($color, "green", $space: rgb) + ', ' +
+          color.channel($color, "blue", $space: rgb);
 }
 
 @function toRGB($color) {
-  @return rgb(red($color), green($color), blue($color));
+  @return rgb(
+    color.channel($color, "red", $space: rgb),
+    color.channel($color, "green", $space: rgb),
+    color.channel($color, "blue", $space: rgb)
+  );
 }
 
 @function toRGBA($color, $alpha: 1) {
