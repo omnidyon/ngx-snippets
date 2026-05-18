@@ -1,0 +1,62 @@
+export const PYTHON_KEYWORDS_A = [
+  'break',
+  'continue',
+  'elif',
+  'else',
+  'except',
+  'finally',
+  'for',
+  'from',
+  'if',
+  'import',
+  'pass',
+  'raise',
+  'return',
+  'try',
+  'while',
+  'with',
+  'yield',
+];
+
+export const PYTHON_KEYWORDS_B = [
+  'async',
+  'await',
+  'class',
+  'def',
+  'global',
+  'lambda',
+  'nonlocal',
+];
+
+export const PYTHON_KEYWORDS_C = [
+  'and',
+  'as',
+  'assert',
+  'del',
+  'in',
+  'is',
+  'not',
+  'or',
+  'match',
+  'case',
+];
+
+export const PYTHON_DATA_TYPES = [
+  'bool',
+  'bytearray',
+  'bytes',
+  'complex',
+  'dict',
+  'float',
+  'frozenset',
+  'int',
+  'list',
+  'object',
+  'set',
+  'str',
+  'tuple',
+  'type',
+  'None',
+  'True',
+  'False',
+];

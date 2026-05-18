@@ -11,7 +11,20 @@
  * @description
  * Type representing supported code languages
  */
-export type Formats = 'JavaScript' | 'TypeScript' | 'HTML' | 'CSS';
+export type Formats =
+  | 'JavaScript'
+  | 'TypeScript'
+  | 'HTML'
+  | 'CSS'
+  | 'JSON'
+  | 'Python'
+  | 'SQL'
+  | 'Java'
+  | 'C#'
+  | 'Go'
+  | 'Rust'
+  | 'C'
+  | 'C++';
 
 /**
  * @publicApi
