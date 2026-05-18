@@ -132,9 +132,9 @@ Here is a list of values we can change to custom style and there meanings
 | --snippet-header-text-color       | header text color                 | #61789e     |
 | --number-line-highlight-color     | color of the number when selected | #38e9ae     |
 | --number-line-hover-color         | color of the number when hovered  | #07cc8a     |
-| --ka-token-color                  | Keyword group A color             | #e1955d     |
-| --kb-token-color                  | Keyword group B color             | #ff8c5f     |
-| --kc-token-color                  | Keyword group C color             | #22e2b8     |
+| --control-keyword-token-color     | Control keywords (if/for/return/import/throw/await/…) | #e1955d     |
+| --context-keyword-token-color     | Context keywords (function/this/super/while/finally/…) | #ff8c5f     |
+| --declaration-keyword-token-color | Declaration keywords (class/const/let/var/public/static/…) | #22e2b8     |
 | --quoted-token-color              | quotes and quoted text color      | #34ec71     |
 | --data-token-color                | color of data type tokens         | #a98adf     |
 | --function-token-color            | color of function names           | #44b7ff     |

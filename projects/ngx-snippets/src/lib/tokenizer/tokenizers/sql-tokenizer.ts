@@ -3,9 +3,9 @@ import { JS_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 import {
   SQL_DATA_TYPES,
-  SQL_KEYWORDS_A,
-  SQL_KEYWORDS_B,
-  SQL_KEYWORDS_C,
+  SQL_CONTROL_KEYWORDS,
+  SQL_CONTEXT_KEYWORDS,
+  SQL_DECLARATION_KEYWORDS,
   SQL_OPERATORS,
 } from './tokens/sql-tokens';
 
@@ -40,12 +40,12 @@ export class SQLTokenizer extends BaseTokenizer {
       return `scope-level-${--this.scopeLevelRound}`;
     } else if (this.isNumber(tokenData)) {
       return 'data-token';
-    } else if (this.isKeyword(tokenData, SQL_KEYWORDS_A)) {
-      return 'ka-token';
-    } else if (this.isKeyword(tokenData, SQL_KEYWORDS_B)) {
-      return 'kb-token';
-    } else if (this.isKeyword(tokenData, SQL_KEYWORDS_C)) {
-      return 'kc-token';
+    } else if (this.isKeyword(tokenData, SQL_CONTROL_KEYWORDS)) {
+      return 'control-keyword-token';
+    } else if (this.isKeyword(tokenData, SQL_CONTEXT_KEYWORDS)) {
+      return 'context-keyword-token';
+    } else if (this.isKeyword(tokenData, SQL_DECLARATION_KEYWORDS)) {
+      return 'declaration-keyword-token';
     } else if (this.isDataType(tokenData)) {
       return 'data-token';
     } else if (this.isFunction(tokenData)) {

@@ -1,18 +1,18 @@
 import { CStyleTokenizer } from './c-style-tokenizer';
 import {
   RUST_DATA_TYPES,
-  RUST_KEYWORDS_A,
-  RUST_KEYWORDS_B,
-  RUST_KEYWORDS_C,
+  RUST_CONTROL_KEYWORDS,
+  RUST_CONTEXT_KEYWORDS,
+  RUST_DECLARATION_KEYWORDS,
   RUST_OPERATORS,
 } from './tokens/rust-tokens';
 
 export class RustTokenizer extends CStyleTokenizer {
   constructor() {
     super({
-      keywordsA: RUST_KEYWORDS_A,
-      keywordsB: RUST_KEYWORDS_B,
-      keywordsC: RUST_KEYWORDS_C,
+      controlKeywords: RUST_CONTROL_KEYWORDS,
+      contextKeywords: RUST_CONTEXT_KEYWORDS,
+      declarationKeywords: RUST_DECLARATION_KEYWORDS,
       dataTypes: RUST_DATA_TYPES,
       operators: RUST_OPERATORS,
     });

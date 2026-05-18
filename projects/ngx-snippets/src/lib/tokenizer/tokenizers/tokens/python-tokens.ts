@@ -1,4 +1,4 @@
-export const PYTHON_KEYWORDS_A = [
+export const PYTHON_CONTROL_KEYWORDS = [
   'break',
   'continue',
   'elif',
@@ -18,7 +18,7 @@ export const PYTHON_KEYWORDS_A = [
   'yield',
 ];
 
-export const PYTHON_KEYWORDS_B = [
+export const PYTHON_CONTEXT_KEYWORDS = [
   'async',
   'await',
   'class',
@@ -28,7 +28,7 @@ export const PYTHON_KEYWORDS_B = [
   'nonlocal',
 ];
 
-export const PYTHON_KEYWORDS_C = [
+export const PYTHON_DECLARATION_KEYWORDS = [
   'and',
   'as',
   'assert',

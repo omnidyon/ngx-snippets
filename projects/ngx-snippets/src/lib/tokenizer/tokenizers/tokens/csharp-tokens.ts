@@ -1,4 +1,4 @@
-export const CSHARP_KEYWORDS_A = [
+export const CSHARP_CONTROL_KEYWORDS = [
   'await',
   'break',
   'case',
@@ -30,7 +30,7 @@ export const CSHARP_KEYWORDS_A = [
   'yield',
 ];
 
-export const CSHARP_KEYWORDS_B = [
+export const CSHARP_CONTEXT_KEYWORDS = [
   'abstract',
   'as',
   'async',
@@ -56,7 +56,7 @@ export const CSHARP_KEYWORDS_B = [
   'volatile',
 ];
 
-export const CSHARP_KEYWORDS_C = [
+export const CSHARP_DECLARATION_KEYWORDS = [
   'class',
   'delegate',
   'enum',

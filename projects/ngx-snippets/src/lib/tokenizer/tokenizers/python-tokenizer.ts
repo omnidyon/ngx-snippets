@@ -3,9 +3,9 @@ import { PYTHON_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 import {
   PYTHON_DATA_TYPES,
-  PYTHON_KEYWORDS_A,
-  PYTHON_KEYWORDS_B,
-  PYTHON_KEYWORDS_C,
+  PYTHON_CONTROL_KEYWORDS,
+  PYTHON_CONTEXT_KEYWORDS,
+  PYTHON_DECLARATION_KEYWORDS,
 } from './tokens/python-tokens';
 
 const COMMENT_CONFIG = {
@@ -46,13 +46,13 @@ export class PythonTokenizer extends BaseTokenizer {
     } else if (tokenData.token === ']') {
       return `scope-level-${--this.scopeLevelSquare}`;
     } else if (this.isDecorator(tokenData)) {
-      return 'kb-token';
-    } else if (this.isKeyword(tokenData, PYTHON_KEYWORDS_A)) {
-      return 'ka-token';
-    } else if (this.isKeyword(tokenData, PYTHON_KEYWORDS_B)) {
-      return 'kb-token';
-    } else if (this.isKeyword(tokenData, PYTHON_KEYWORDS_C)) {
-      return 'kc-token';
+      return 'context-keyword-token';
+    } else if (this.isKeyword(tokenData, PYTHON_CONTROL_KEYWORDS)) {
+      return 'control-keyword-token';
+    } else if (this.isKeyword(tokenData, PYTHON_CONTEXT_KEYWORDS)) {
+      return 'context-keyword-token';
+    } else if (this.isKeyword(tokenData, PYTHON_DECLARATION_KEYWORDS)) {
+      return 'declaration-keyword-token';
     } else if (this.isDataType(tokenData)) {
       return 'data-token';
     } else if (this.isNumber(tokenData)) {

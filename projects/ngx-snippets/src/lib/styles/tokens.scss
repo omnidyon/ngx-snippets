@@ -1,14 +1,14 @@
 .scope-level-1,
-.ka-token {
-  color: var(--ka-token-color);
+.control-keyword-token {
+  color: var(--control-keyword-token-color);
 }
 
-.kb-token {
-  color: var(--kb-token-color);
+.context-keyword-token {
+  color: var(--context-keyword-token-color);
 }
 .scope-level-2,
-.kc-token {
-  color: var(--kc-token-color);
+.declaration-keyword-token {
+  color: var(--declaration-keyword-token-color);
 }
 
 .quoted-token {

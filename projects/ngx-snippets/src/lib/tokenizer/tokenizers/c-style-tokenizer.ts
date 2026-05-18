@@ -9,9 +9,9 @@ import { BaseTokenizer } from './base-tokenizer';
  * these languages — only the keyword/datatype/operator lists differ.
  */
 export interface CStyleConfig {
-  keywordsA: string[];
-  keywordsB: string[];
-  keywordsC: string[];
+  controlKeywords: string[];
+  contextKeywords: string[];
+  declarationKeywords: string[];
   dataTypes: string[];
   operators: string[];
   /** Defaults to `//` line + `/* *​/` block. */
@@ -58,12 +58,12 @@ export abstract class CStyleTokenizer extends BaseTokenizer {
       return `scope-level-${--this.scopeLevelSquare}`;
     } else if (this.isObjectProperty(tokenData)) {
       return 'property-token';
-    } else if (this.isKeywordToken(tokenData, this.config.keywordsA)) {
-      return 'ka-token';
-    } else if (this.isKeywordToken(tokenData, this.config.keywordsB)) {
-      return 'kb-token';
-    } else if (this.isKeywordToken(tokenData, this.config.keywordsC)) {
-      return 'kc-token';
+    } else if (this.isKeywordToken(tokenData, this.config.controlKeywords)) {
+      return 'control-keyword-token';
+    } else if (this.isKeywordToken(tokenData, this.config.contextKeywords)) {
+      return 'context-keyword-token';
+    } else if (this.isKeywordToken(tokenData, this.config.declarationKeywords)) {
+      return 'declaration-keyword-token';
     } else if (this.isDataToken(tokenData)) {
       return 'data-token';
     } else if (this.isFunctionToken(tokenData)) {

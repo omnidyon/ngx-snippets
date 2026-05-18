@@ -18,7 +18,7 @@ export class HTMLTokenizer extends BaseTokenizer {
 
   getClass(tokenData: TokenData): string {
     if (this.isMark(tokenData)) {
-      return 'kc-token';
+      return 'declaration-keyword-token';
     } else if (this.isElementName(tokenData)) {
       return 'element-token';
     } else if (this.isAttribute(tokenData)) {

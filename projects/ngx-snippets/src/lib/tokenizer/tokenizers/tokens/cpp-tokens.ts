@@ -1,4 +1,4 @@
-export const CPP_KEYWORDS_A = [
+export const CPP_CONTROL_KEYWORDS = [
   'break',
   'case',
   'catch',
@@ -21,7 +21,7 @@ export const CPP_KEYWORDS_A = [
   'while',
 ];
 
-export const CPP_KEYWORDS_B = [
+export const CPP_CONTEXT_KEYWORDS = [
   'auto',
   'constexpr',
   'consteval',
@@ -51,7 +51,7 @@ export const CPP_KEYWORDS_B = [
   'volatile',
 ];
 
-export const CPP_KEYWORDS_C = [
+export const CPP_DECLARATION_KEYWORDS = [
   'class',
   'concept',
   'const',

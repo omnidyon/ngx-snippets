@@ -1,4 +1,4 @@
-export const JAVA_KEYWORDS_A = [
+export const JAVA_CONTROL_KEYWORDS = [
   'assert',
   'break',
   'case',
@@ -23,7 +23,7 @@ export const JAVA_KEYWORDS_A = [
   'yield',
 ];
 
-export const JAVA_KEYWORDS_B = [
+export const JAVA_CONTEXT_KEYWORDS = [
   'abstract',
   'default',
   'final',
@@ -41,7 +41,7 @@ export const JAVA_KEYWORDS_B = [
   'volatile',
 ];
 
-export const JAVA_KEYWORDS_C = [
+export const JAVA_DECLARATION_KEYWORDS = [
   'class',
   'enum',
   'implements',

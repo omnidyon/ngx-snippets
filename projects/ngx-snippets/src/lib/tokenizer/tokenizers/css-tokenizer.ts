@@ -38,7 +38,7 @@ export class CSSTokenizer extends BaseTokenizer {
     } else if (this.isElementName(tokenData)) {
       return 'element-token';
     } else if (this.isDefinition(tokenData)) {
-      return 'kc-token';
+      return 'declaration-keyword-token';
     } else if (this.isFunction(tokenData)) {
       return 'function-token';
     } else if (this.isProp(tokenData)) {

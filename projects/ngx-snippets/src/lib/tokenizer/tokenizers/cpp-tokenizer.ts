@@ -1,9 +1,9 @@
 import { CStyleTokenizer } from './c-style-tokenizer';
 import {
   CPP_DATA_TYPES,
-  CPP_KEYWORDS_A,
-  CPP_KEYWORDS_B,
-  CPP_KEYWORDS_C,
+  CPP_CONTROL_KEYWORDS,
+  CPP_CONTEXT_KEYWORDS,
+  CPP_DECLARATION_KEYWORDS,
   CPP_OPERATORS,
 } from './tokens/cpp-tokens';
 
@@ -14,9 +14,9 @@ import {
 export class CppTokenizer extends CStyleTokenizer {
   constructor() {
     super({
-      keywordsA: CPP_KEYWORDS_A,
-      keywordsB: CPP_KEYWORDS_B,
-      keywordsC: CPP_KEYWORDS_C,
+      controlKeywords: CPP_CONTROL_KEYWORDS,
+      contextKeywords: CPP_CONTEXT_KEYWORDS,
+      declarationKeywords: CPP_DECLARATION_KEYWORDS,
       dataTypes: CPP_DATA_TYPES,
       operators: CPP_OPERATORS,
     });

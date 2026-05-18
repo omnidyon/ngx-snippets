@@ -89,19 +89,19 @@
   initial-value: #07cc8a;
 }
 
-@property --ka-token-color {
+@property --control-keyword-token-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #e1955d;
 }
 
-@property --kb-token-color {
+@property --context-keyword-token-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #ff8c5f;
 }
 
-@property --kc-token-color {
+@property --declaration-keyword-token-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #22e2b8;

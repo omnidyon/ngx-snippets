@@ -5,7 +5,7 @@ export const MOCK_C_TOKENS = [
   },
   {
     token: 'import',
-    class: 'ka-token',
+    class: 'control-keyword-token',
   },
   {
     token: ' ',
@@ -54,7 +54,7 @@ export const MOCK_C_TOKENS = [
  * To regenerate: `npx tsx scripts/regen-fixture.ts`
  */
 export const MOCK_C_TOKENS_LARGE = [
-  { token: 'import', class: 'ka-token' },
+  { token: 'import', class: 'control-keyword-token' },
   { token: ' ', class: 'text-token' },
   { token: '', class: 'text-token' },
   { token: '{', class: 'scope-level-1' },
@@ -66,7 +66,7 @@ export const MOCK_C_TOKENS_LARGE = [
   { token: '}', class: 'scope-level-1' },
   { token: '', class: 'text-token' },
   { token: ' ', class: 'text-token' },
-  { token: 'from', class: 'ka-token' },
+  { token: 'from', class: 'control-keyword-token' },
   { token: ' ', class: 'text-token' },
   { token: '', class: 'text-token' },
   { token: "'", class: 'quoted-token' },
@@ -190,9 +190,9 @@ export const MOCK_C_TOKENS_LARGE = [
   { token: '\n', class: 'text-token' },
   { token: '', class: 'text-token' },
   { token: '\n', class: 'text-token' },
-  { token: 'export', class: 'ka-token' },
+  { token: 'export', class: 'control-keyword-token' },
   { token: ' ', class: 'text-token' },
-  { token: 'class', class: 'kc-token' },
+  { token: 'class', class: 'declaration-keyword-token' },
   { token: ' ', class: 'text-token' },
   { token: 'AppComponent', class: 'text-token' },
   { token: ' ', class: 'text-token' },

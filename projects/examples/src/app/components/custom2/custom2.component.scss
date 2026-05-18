@@ -1,10 +1,10 @@
-* {
+﻿* {
   --snippet-background-color: rgb(12, 75, 80);
   --snippet-header-background-color: rgb(4, 31, 31);
   --snippet-header-text-color: #13dcff;
-  --ka-token-color: rgb(148, 105, 248);
-  --kb-token-color: rgb(29, 253, 29);
-  --kc-token-color: rgb(128, 189, 128);
+  --control-keyword-token-color: rgb(148, 105, 248);
+  --context-keyword-token-color: rgb(29, 253, 29);
+  --declaration-keyword-token-color: rgb(128, 189, 128);
   --quoted-token-color: rgb(184, 159, 17);
   --data-token-color: rgb(110, 199, 211);
   --function-token-color: rgb(75, 75, 216);

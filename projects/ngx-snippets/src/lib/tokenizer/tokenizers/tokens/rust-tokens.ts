@@ -1,4 +1,4 @@
-export const RUST_KEYWORDS_A = [
+export const RUST_CONTROL_KEYWORDS = [
   'as',
   'async',
   'await',
@@ -22,7 +22,7 @@ export const RUST_KEYWORDS_A = [
   'yield',
 ];
 
-export const RUST_KEYWORDS_B = [
+export const RUST_CONTEXT_KEYWORDS = [
   'box',
   'crate',
   'const',
@@ -40,7 +40,7 @@ export const RUST_KEYWORDS_B = [
   'virtual',
 ];
 
-export const RUST_KEYWORDS_C = [
+export const RUST_DECLARATION_KEYWORDS = [
   'enum',
   'fn',
   'impl',

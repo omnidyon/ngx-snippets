@@ -3,9 +3,9 @@ import { JS_SPLIT } from '../utils/regexp';
 import { BaseTokenizer } from './base-tokenizer';
 import {
   DATA_TYPE_TOKENS,
-  KEYWORD_TOKENS_A,
-  KEYWORD_TOKENS_B,
-  KEYWORD_TOKENS_C,
+  CONTROL_KEYWORDS,
+  CONTEXT_KEYWORDS,
+  DECLARATION_KEYWORDS,
   OPERATOR_TOKENS,
 } from './tokens/js-ts-tokens';
 
@@ -44,12 +44,12 @@ export class JSTokenizer extends BaseTokenizer {
       return `scope-level-${--this.scopeLevelSquare}`;
     } else if (this.isObjectProperty(tokenData)) {
       return 'property-token';
-    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_A)) {
-      return 'ka-token';
-    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_B)) {
-      return 'kb-token';
-    } else if (this.isKeywordToken(tokenData, KEYWORD_TOKENS_C)) {
-      return 'kc-token';
+    } else if (this.isKeywordToken(tokenData, CONTROL_KEYWORDS)) {
+      return 'control-keyword-token';
+    } else if (this.isKeywordToken(tokenData, CONTEXT_KEYWORDS)) {
+      return 'context-keyword-token';
+    } else if (this.isKeywordToken(tokenData, DECLARATION_KEYWORDS)) {
+      return 'declaration-keyword-token';
     } else if (this.isDataToken(tokenData)) {
       return 'data-token';
     } else if (this.isFunctionToken(tokenData)) {

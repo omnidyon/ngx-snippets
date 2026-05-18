@@ -1,4 +1,4 @@
-export const GO_KEYWORDS_A = [
+export const GO_CONTROL_KEYWORDS = [
   'break',
   'case',
   'continue',
@@ -17,7 +17,7 @@ export const GO_KEYWORDS_A = [
   'switch',
 ];
 
-export const GO_KEYWORDS_B = [
+export const GO_CONTEXT_KEYWORDS = [
   'chan',
   'const',
   'func',
@@ -26,7 +26,7 @@ export const GO_KEYWORDS_B = [
   'var',
 ];
 
-export const GO_KEYWORDS_C = [
+export const GO_DECLARATION_KEYWORDS = [
   'interface',
   'struct',
   'type',

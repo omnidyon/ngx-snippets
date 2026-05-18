@@ -29,7 +29,7 @@ export class JSONTokenizer extends BaseTokenizer {
     } else if (tokenData.token === ']') {
       return `scope-level-${--this.scopeLevelSquare}`;
     } else if (this.isLiteral(tokenData)) {
-      return 'kc-token';
+      return 'declaration-keyword-token';
     } else if (this.isNumber(tokenData)) {
       return 'data-token';
     } else if (this.isKey(tokenData)) {

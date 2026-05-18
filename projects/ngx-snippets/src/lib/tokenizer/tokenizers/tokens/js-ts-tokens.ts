@@ -1,4 +1,4 @@
-export const KEYWORD_TOKENS_A = [
+export const CONTROL_KEYWORDS = [
   'abstract',
   'async',
   'await',
@@ -25,7 +25,7 @@ export const KEYWORD_TOKENS_A = [
   'try',
 ];
 
-export const KEYWORD_TOKENS_B = [
+export const CONTEXT_KEYWORDS = [
   'arguments',
   // 'constructor',
   'continue',
@@ -50,7 +50,7 @@ export const KEYWORD_TOKENS_B = [
   'with',
 ];
 
-export const KEYWORD_TOKENS_C = [
+export const DECLARATION_KEYWORDS = [
   'as',
   'class',
   'const',
@@ -91,7 +91,7 @@ export const OPERATOR_TOKENS = [
   '||',
 ];
 
-export const KEYWORD_TOKENS_D = ['false', 'true'];
+export const BOOLEAN_KEYWORDS = ['false', 'true'];
 
 export const DATA_TYPE_TOKENS = [
   'boolean',

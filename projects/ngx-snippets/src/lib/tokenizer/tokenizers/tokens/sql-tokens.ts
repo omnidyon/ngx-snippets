@@ -4,7 +4,7 @@
  * all classify the same.
  */
 
-export const SQL_KEYWORDS_A = [
+export const SQL_CONTROL_KEYWORDS = [
   'select',
   'from',
   'where',
@@ -33,7 +33,7 @@ export const SQL_KEYWORDS_A = [
   'set',
 ];
 
-export const SQL_KEYWORDS_B = [
+export const SQL_CONTEXT_KEYWORDS = [
   'insert',
   'update',
   'delete',
@@ -52,7 +52,7 @@ export const SQL_KEYWORDS_B = [
   'savepoint',
 ];
 
-export const SQL_KEYWORDS_C = [
+export const SQL_DECLARATION_KEYWORDS = [
   'as',
   'asc',
   'desc',

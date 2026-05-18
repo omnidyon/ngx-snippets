@@ -1,18 +1,18 @@
 import { CStyleTokenizer } from './c-style-tokenizer';
 import {
   GO_DATA_TYPES,
-  GO_KEYWORDS_A,
-  GO_KEYWORDS_B,
-  GO_KEYWORDS_C,
+  GO_CONTROL_KEYWORDS,
+  GO_CONTEXT_KEYWORDS,
+  GO_DECLARATION_KEYWORDS,
   GO_OPERATORS,
 } from './tokens/go-tokens';
 
 export class GoTokenizer extends CStyleTokenizer {
   constructor() {
     super({
-      keywordsA: GO_KEYWORDS_A,
-      keywordsB: GO_KEYWORDS_B,
-      keywordsC: GO_KEYWORDS_C,
+      controlKeywords: GO_CONTROL_KEYWORDS,
+      contextKeywords: GO_CONTEXT_KEYWORDS,
+      declarationKeywords: GO_DECLARATION_KEYWORDS,
       dataTypes: GO_DATA_TYPES,
       operators: GO_OPERATORS,
     });
