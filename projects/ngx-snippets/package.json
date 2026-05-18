@@ -13,7 +13,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omnidyon/ngx-snippets"
+    "url": "git+https://github.com/omnidyon/ngx-snippets.git"
   },
   "author": "Slavko Mihajlovic",
   "bugs": {

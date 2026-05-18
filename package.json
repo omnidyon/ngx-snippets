@@ -8,7 +8,7 @@
     "build": "ng build ngx-snippets",
     "watch": "ng build ngx-snippets --watch",
     "test": "ng test --source-map=false",
-    "publish:lib": "npm run build && npm publish dist/ngx-snippets && npx jsr publish"
+    "publish:lib": "npm run build && npm publish ./dist/ngx-snippets && npx jsr publish"
   },
   "private": false,
   "dependencies": {
@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omnidyon/ngx-snippets"
+    "url": "git+https://github.com/omnidyon/ngx-snippets.git"
   },
   "author": "Slavko Mihajlovic",
   "bugs": {
