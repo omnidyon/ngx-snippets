@@ -1,13 +1,12 @@
 {
   "name": "@omnidyon/ngx-snippets",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "An Angular library for adding code snippets top you application. It's easy to use, flexible and lightweight.",
   "peerDependencies": {
-    "@angular/common": ">=16.0.0",
-    "@angular/core": ">=16.0.0"
+    "@angular/common": ">=20.0.0 <21.0.0",
+    "@angular/core": ">=20.0.0 <21.0.0"
   },
   "dependencies": {
-    "@omnidyon/ngx-snippets": "file:",
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
@@ -24,14 +23,9 @@
   "license": "ISC",
   "keywords": [
     "Angular",
-    "Angular 2",
-    "Angular2",
-    "Angular 19",
+    "Angular 20",
     "angular",
-    "angular 2",
-    "angular2",
-    "angular 19",
-    "snippets",
+    "angular 20",
     "snippets",
     "Snippet",
     "Snippets",

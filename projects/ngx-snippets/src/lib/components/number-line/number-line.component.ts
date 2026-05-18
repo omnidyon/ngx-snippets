@@ -44,7 +44,7 @@ export class NumberLineComponent {
   selectLine(): void {
     this.handleSelect(this.self);
     this.copyService.setLine(this.number, this.valueForCopy);
-    this.copyService.toClipboard();
+    void this.copyService.toClipboard();
   }
 
   handleSelect(element: Element): void {
@@ -83,7 +83,7 @@ export class NumberLineComponent {
     const spans = element.children;
 
     for (let i = 0; i < spans.length; i++) {
-      this.valueForCopy += spans[i].innerHTML;
+      this.valueForCopy += spans[i].textContent ?? '';
     }
   }
 }

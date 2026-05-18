@@ -27,7 +27,7 @@ export class CodeTokenizerDirective
 {
   @Input() format: Formats = 'TypeScript';
   @Input() set tokens(tokens: Token[]) {
-    this.clearNumberLines();
+    this.reset();
     tokens.forEach((token) => {
       this.handleToken(token);
     });

@@ -17,13 +17,7 @@ export class HTMLTokenizer extends BaseTokenizer {
   }
 
   getClass(tokenData: TokenData): string {
-    if (this.isQuoted(tokenData)) {
-      this.quoted = !this.quoted;
-    }
-
-    if (this.quoted || this.isQuoted(tokenData)) {
-      return 'quoted-token';
-    } else if (this.isMark(tokenData)) {
+    if (this.isMark(tokenData)) {
       return 'kc-token';
     } else if (this.isElementName(tokenData)) {
       return 'element-token';
@@ -51,6 +45,6 @@ export class HTMLTokenizer extends BaseTokenizer {
   }
 
   isMark(tokenData: TokenData): boolean {
-    return /([<>=/])/g.test(tokenData.token);
+    return /[<>=/]/.test(tokenData.token);
   }
 }

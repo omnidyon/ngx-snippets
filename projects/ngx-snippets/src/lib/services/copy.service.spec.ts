@@ -6,7 +6,7 @@ describe('CopyService', () => {
   let service: CopyService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({ providers: [CopyService] });
     service = TestBed.inject(CopyService);
     service.set('');
   });

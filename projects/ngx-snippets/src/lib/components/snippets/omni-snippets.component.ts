@@ -86,6 +86,12 @@ export class OmniSnippetsComponent {
 
   @Input() set snippets(snippets: SnippetConfig[]) {
     this._snippets = snippets;
+    this.classifiedTokens = [];
+
+    if (!snippets || snippets.length === 0) {
+      return;
+    }
+
     this.tab = snippets[0].format;
     this.copyService.set(snippets[0].template);
     snippets.forEach((snippet) => {
@@ -101,6 +107,6 @@ export class OmniSnippetsComponent {
   }
 
   copySnippet(): void {
-    this.copyService.toClipboard();
+    void this.copyService.toClipboard();
   }
 }

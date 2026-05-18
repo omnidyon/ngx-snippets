@@ -26,10 +26,7 @@ export class TokenizerService {
   ]);
 
   tokenize(text: string, format: Formats): Token[] {
-    text = text.replaceAll('&lt;', '<');
-    text = text.replaceAll('&gt;', '>');
-    text = text.trim();
     const tokenizer = this.formatterMap.get(format) ?? JSTokenizer;
-    return new tokenizer().parseAndClassify(text);
+    return new tokenizer().parseAndClassify(text.trim());
   }
 }

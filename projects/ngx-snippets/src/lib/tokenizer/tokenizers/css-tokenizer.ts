@@ -5,8 +5,13 @@ import { CSS_PROP_TOKENS, CSS_TOKENS } from './tokens/css-tokens';
 import { HTML_TOKENS } from './tokens/html-tokens';
 
 const COMMENT_CONFIG = {
-  commentToken: '#',
-}
+  blockToken: {
+    startToken: '/*',
+    endToken: '*/',
+  },
+};
+
+const HEX_COLOR_RE = /^#[0-9a-fA-F]{3,8}$/;
 
 export class CSSTokenizer extends BaseTokenizer {
   splitExpression = CSS_SPLIT;
@@ -18,12 +23,8 @@ export class CSSTokenizer extends BaseTokenizer {
   }
 
   getClass(tokenData: TokenData): string {
-    if (this.isQuoted(tokenData)) {
-      this.quoted = !this.quoted;
-    }
-
-    if (this.quoted || this.isQuoted(tokenData)) {
-      return 'quoted-token';
+    if (this.isHexColor(tokenData)) {
+      return 'data-token';
     } else if (this.isSelector(tokenData)) {
       return 'selector-token';
     } else if (tokenData.token === '{') {
@@ -47,6 +48,10 @@ export class CSSTokenizer extends BaseTokenizer {
     } else {
       return 'text-token';
     }
+  }
+
+  isHexColor(tokenData: TokenData): boolean {
+    return HEX_COLOR_RE.test(tokenData.token);
   }
 
   isElementName(tokenData: TokenData): boolean {
@@ -74,6 +79,6 @@ export class CSSTokenizer extends BaseTokenizer {
   }
 
   isSeparatorToken(tokenData: TokenData): boolean {
-    return /([,.:;])/g.test(tokenData.token);
+    return /([,.:;])/.test(tokenData.token);
   }
 }

@@ -43,16 +43,34 @@ export abstract class CodeHandlerDirective implements OnDestroy {
   readonly copyService = inject(CopyService);
   readonly viewContainer = inject(ViewContainerRef);
 
-  constructor(
-  ) {
+  constructor() {
     this.self = this.elementRef.nativeElement;
+    this.createLine();
+  }
+
+  /**
+   * Tears down every line/listener/counter the directive owns and starts
+   * fresh. Required whenever tokens are re-bound — otherwise DOM nodes,
+   * click listeners and line numbers accumulate across rebinds.
+   */
+  reset(): void {
+    this.unListeners.forEach((unListener) => unListener());
+    this.unListeners = [];
+
+    while (this.self?.firstChild) {
+      this.renderer.removeChild(this.self, this.self.firstChild);
+    }
+    this.clearNumberLines();
+
+    this.lineCount = 1;
+    this.lineNumber = 1;
     this.createLine();
   }
 
   handleToken(token: Token): void {
     if (token.token === `\n`) {
       if (this.runningLine.children.length === 0) {
-        this.renderer.setProperty(this.runningLine, 'innerHTML', `\n`);
+        this.renderer.setProperty(this.runningLine, 'textContent', `\n`);
       }
 
       this.createLine();
@@ -82,7 +100,7 @@ export abstract class CodeHandlerDirective implements OnDestroy {
   }
 
   clearNumberLines(): void {
-    while (this.lineNumbers.firstChild) {
+    while (this.lineNumbers?.firstChild) {
       this.renderer.removeChild(this.lineNumbers, this.lineNumbers.lastChild);
     }
   }
@@ -124,5 +142,6 @@ export abstract class CodeHandlerDirective implements OnDestroy {
 
   ngOnDestroy(): void {
     this.unListeners.forEach((unListener) => unListener());
+    this.unListeners = [];
   }
 }

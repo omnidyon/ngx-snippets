@@ -1,11 +1,14 @@
 import { CommentConfig } from '../../interfaces/comment.interface';
 import { Token, TokenData } from '../../interfaces/token.interface';
 
+const QUOTE_CHARS = ['"', "'", '`'] as const;
+type QuoteChar = (typeof QUOTE_CHARS)[number];
+
 export abstract class BaseTokenizer {
   commentConfig!: CommentConfig;
   abstract splitExpression: RegExp;
-  classifiedTokens: Token[] = [];
-  quoted: boolean = false;
+  /** Char that opened the current string, or null if not inside a string. */
+  openQuote: QuoteChar | null = null;
   commented: boolean = false;
   comment: boolean = false;
 
@@ -15,11 +18,16 @@ export abstract class BaseTokenizer {
     };
   }
 
+  get quoted(): boolean {
+    return this.openQuote !== null;
+  }
+
   parseAndClassify(text: string): Token[] {
     const tokens = text.split(this.splitExpression);
+    const classifiedTokens: Token[] = [];
 
     tokens.forEach((token, index) => {
-      this.classifiedTokens.push(
+      classifiedTokens.push(
         this.classifyToken({
           token,
           nextToken: tokens[index + 1],
@@ -28,7 +36,7 @@ export abstract class BaseTokenizer {
         })
       );
     });
-    return this.classifiedTokens;
+    return classifiedTokens;
   }
 
   abstract getClass(tokenData: TokenData): string;
@@ -44,17 +52,26 @@ export abstract class BaseTokenizer {
     };
   }
 
+  /**
+   * Tracks string-literal state. Only the same quote char that opened the
+   * string can close it — so `"don't"` stays a single string instead of
+   * flipping state on the apostrophe.
+   */
   isQuoted(tokenData: TokenData): string | undefined {
-    let quotedClass!: string;
-    if (this.quoted) {
-      quotedClass = 'quoted-token';
+    const wasQuoted = this.openQuote !== null;
+    const ch = tokenData.token as QuoteChar;
+
+    if (this.openQuote === null && QUOTE_CHARS.includes(ch)) {
+      this.openQuote = ch;
+      return 'quoted-token';
     }
 
-    if (/(["'`])/g.test(tokenData.token)) {
-      this.quoted = !this.quoted;
-      quotedClass = 'quoted-token';
+    if (this.openQuote !== null && this.openQuote === ch) {
+      this.openQuote = null;
+      return 'quoted-token';
     }
-    return quotedClass;
+
+    return wasQuoted ? 'quoted-token' : undefined;
   }
 
   isCommented(tokenData: TokenData): string | undefined {

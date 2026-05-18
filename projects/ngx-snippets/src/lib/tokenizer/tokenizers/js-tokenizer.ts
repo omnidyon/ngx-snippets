@@ -58,7 +58,7 @@ export class JSTokenizer extends BaseTokenizer {
       return 'parameter-token';
     } else if (this.isOperatorToken(tokenData)) {
       return 'operator-token';
-    } else if (/([()])/g.test(tokenData.token)) {
+    } else if (/[()]/.test(tokenData.token)) {
       return 'var-token';
     } else {
       return 'text-token';
@@ -98,7 +98,7 @@ export class JSTokenizer extends BaseTokenizer {
   }
 
   isSeparatorToken(tokenData: TokenData): boolean {
-    return /([!,.:;])/g.test(tokenData.token);
+    return /[!,.:;]/.test(tokenData.token);
   }
 
   isOperatorToken(tokenData: TokenData): boolean {
